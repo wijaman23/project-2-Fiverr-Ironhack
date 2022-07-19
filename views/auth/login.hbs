@@ -1,27 +1,29 @@
-<div class="d-flex justify-content-center">
+<div class="d-flex align-items-center flex-column">
+  <div>
+  <h2>Inicar sesion en Fivver-Ironhack</h2>
+  </div>
+  <div>
+  <img src="img/login.png" alt="Logo login" class="img-login">  
+  </div>
   <div class="col-8 col-md-7 col-lg-3">
-    <h2>Unete a Fivver-Ironhack</h2>
-
     <form action="/auth/login" method="post">
         <div class="input-group mb-2">
             <span class="input-group-text"><i class="fa fa-envelope fa-fw"></i></span>
-            <input type="text" name="email" value="{{ user.email }}" class="form-control {{#if errors.email }}is-invalid{{/if}}" placeholder="name@exaple.org">
-            {{#if errors.email}}<div class="invalid-feedback">{{ errors.email }}</div>{{/if}}
+            <input type="text" name="email" class="form-control" placeholder="name@exaple.org">
         </div>
     
         <div class="input-group mb-3">
             <span class="input-group-text"><i class="fa fa-lock fa-fw"></i></span>
-            <input type="password" name="password" class="form-control {{#if errors.password }}is-invalid{{/if}}" placeholder="User password">
-            {{#if errors.password}}<div class="invalid-feedback">{{ errors.password }}</div>{{/if}}
+            <input type="password" name="password" class="form-control" placeholder="User password">
          </div>
     
         <div class="d-grid">
-            <button class="btn btn-primary" type="submit">Login</button>
+            <button class="btn btn-success" type="submit">Login</button>
         </div>
     </form>
     <hr>
-    <div class="d-grid">
-      <a class="btn btn-secondary" href="/users/register">Register</a>
-    </div>
+  </div>
+  <div>
+    <h4>¿Aún no eres miembro? <a class="btn btn-outline-success" href="/register">Únete ahora</a></h4>
   </div>
 </div>
