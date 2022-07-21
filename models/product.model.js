@@ -1,12 +1,13 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema
+const categoryProduct = require("../data/category.json")
 
 const productSchema = new Schema ({
     title: {
         type: String,
         trim: true,
         required: [true, 'Se requiere titulo'],
-        minLength: [3, 'Min 3 caracteres'],
+        minLength: [13, 'Min 13 caracteres'],
     },
     description: {
         type: String,
@@ -32,8 +33,10 @@ const productSchema = new Schema ({
         type: Number,
     },
     category:{
-        type: String,
-        required: [true, 'Se requiere categoria'],
+        type: [{
+            type: String,
+            enum: categoryProduct
+        }]
     },
 })
 
@@ -41,8 +44,6 @@ productSchema.pre("validate", function (next) {
     this.img = this.img || undefined
     next()
 })
-
-
 
 const Product = mongoose.model('Product', productSchema)
 

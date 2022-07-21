@@ -1,0 +1,44 @@
+<nav class="navbar bg-light">
+    <form class="container-fluid justify-content-start" method="get">
+        {{#each categoryProduct as |category|}}
+            <div class="index-btn">
+                <button class="btn btn-sm btn-outline-secondary" type="submit" name="category" value="{{category}}">{{category}}</button>
+            </div>  
+        {{/each}}
+        <div class="index-btn">
+            <button class="btn btn-sm btn-outline-secondary" type="submit" name="category"><a class="index-btn-a" href="/">Todos</a></button>
+        </div>
+    </form>
+</nav>
+<div class="container-index">
+    <h2>Qué servicio comprar ahora</h2>
+    <h5 class="index-title-second">Nuestros servicios ofrecidos para ti</h5>
+    <div class="container-index-list-product">
+        <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-xl-6 g-4">
+            {{#each products as |product|}}
+            <div class="col">
+                <div class="card">
+                    <img src="{{product.img}}" class="container-img-product" alt="img">
+                    <div class="card-body">
+                        <div class="container-product-title">
+                            <h6>{{product.title}}</h6>
+                        </div>
+                        <small class="autor-index">Luis Javier Muñoz</small>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <small>A partir de</small>
+                            <h4 class="card-text">{{product.price}}€</h4>
+                            <a class="index-detail" href="/{{product.id}}">Detalles</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}} 
+        </div>
+    </div>
+    <a href="newProduct">Nuevo producto</a>
+</div>
+
+
+

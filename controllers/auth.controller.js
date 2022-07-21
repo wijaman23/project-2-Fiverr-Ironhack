@@ -6,3 +6,9 @@ module.exports.login = (req, res, next) => {
 module.exports.register = (req, res, next) => {
     res.render('auth/register')
 }
+module.exports.doRegister = (req, res, next) => {
+
+    User.create(req.body)
+        .then(() => res.redirect('detail'))
+        .catch((error) => next(error))
+}

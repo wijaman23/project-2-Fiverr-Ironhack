@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,700;1,400&display=swap');
+
 /* NAVBAR */
 .nab-bar-login {
     margin-right: 10px;
@@ -16,3 +18,63 @@
 .footer-text {
     opacity:0.4;
 }
+/*INDEX*/
+.container-index {
+    font-family: 'Volkhov', serif;
+    margin-left: 8%;
+    margin-top: 5%;
+    margin-right: 8%;
+    margin-bottom: 50px;
+}
+.container-img-product {
+    width: auto;
+    height: 170px;
+}
+.container-product-title {
+    width: auto;
+    height: 70px;
+    margin-bottom: 10%;
+}
+.autor-index{
+    font-style: italic;
+}
+.index-title-second{
+    margin-bottom: 2%;
+    margin-top: 1%;
+}
+.index-detail {
+    color: blue;
+    margin-left: 100px;
+    text-decoration: none;
+}
+.index-btn {
+    margin-left: 5px;
+}
+.index-btn-a {
+    text-decoration: none;
+    color: grey;
+}
+
+/*Product form*/
+.container-product-form{
+    font-family: 'Volkhov', serif;
+    font-size: 1.3em;
+    width: 100%;
+    height: 950px;
+    background-image: url("https://img.freepik.com/vector-gratis/fondo-blanco-gris-brillante-lineas-onduladas_1017-25101.jpg?w=2000");
+}
+.product-form-title {
+    padding: 40px;
+
+}
+.product-form {
+    margin-left: 100px;
+    width: 400px;
+}
+
+/*Detail*/
+.detail-img{
+    width: 300px;
+    height: auto;
+}
+

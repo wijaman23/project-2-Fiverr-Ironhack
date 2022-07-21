@@ -1,0 +1,35 @@
+<div class="container-product-form">
+    <h1 class="product-form-title">Formulario nuevo servicio</h1>
+    <div class="product-form">
+        <form action="/newProduct" method="post">
+            <div class="mb-3">
+                <label for="title" class="form-label">Titulo</label>
+                <input type="text" class="form-control" name="title">
+            </div>
+            <div class="mb-3">
+                <label for="img" class="form-label">Imagen</label>
+                <input type="text" class="form-control" name="img">
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Descripcion</label>
+                <input type="text" class="form-control" name="description">
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Precio</label>
+                <input type="number" class="form-control" name="price">
+            </div>
+            <div class="mb-3">
+                <label for="category" class="form-label">Categoria</label>
+                <select class="form-select" aria-label="Default select example" name="category">
+                        {{#each categoryProduct as |category|}}
+                            <option value="{{category}}">
+                                {{category}}
+                            </option>     
+                        {{/each}}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar formulario</button>
+        </form>
+    </div>
+</div>
+

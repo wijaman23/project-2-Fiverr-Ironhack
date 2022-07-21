@@ -6,11 +6,12 @@ const app = express()
 
 app.set("views", __dirname + "/views")
 app.set("view engine", "hbs")
-//app.use(logger("dev"))
+
 app.use(express.static(`${__dirname}/public`))
 app.use(express.urlencoded({ extended: false })) //coge la peticion del formulario y la carga en el req.body
 
-//Requerimos los archviso hbs de la carpeta config
+//Requerimos los archivos hbs y mongodb de la carpeta config
+require("./config/db.config")
 require("./config/hbs.config")
 
 const routes = require("./config/routes.config");
