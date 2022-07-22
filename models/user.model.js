@@ -1,8 +1,10 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema
+const bcrypt = require("bcryptjs")
 
 const EMAIL_PATTERN = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 const PASSWORD_PATTERN = /[A-Za-z\d$@$!%*?&]{8,15}/
+const WORK_FACTOR = 10
 
 const userSchema = new Schema ({
     name: {
@@ -46,10 +48,29 @@ userSchema.pre("validate", function (next) {
     next()
 })
 
+//Solo seria por si acaso actualiza la contraseña o gurdas algo que lleva la contraseña
+userSchema.pre("save", function (next) {
+    if (this.isModified("password")) { //Saber si viene el chorizo grande (haseada) o solo la contraseña que ha introducido el usuario 
+        bcrypt
+            .hash(this.password, WORK_FACTOR)
+            .then(hash => {
+                this.password = hash
+                next()
+            })
+            .catch(error => next(error))
+    } else {
+        next()
+    }
+})
+
 userSchema.pre('save', function (next) {
     this.name.charAt(0).toUpperCase() + this.name.slice(1).toLowerCase()
     next();
 });
+
+userSchema.methods.checkPassword = function (passwordToCheck) {
+    return bcrypt.compare(passwordToCheck, this.password);
+}
 
 const User = mongoose.model('User', userSchema)
 

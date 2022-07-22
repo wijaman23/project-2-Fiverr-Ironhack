@@ -3,7 +3,7 @@
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav me-auto">
         <li>
-            <a class="navbar-brand" href="/"><img class="w-50 p-1" src="https://i.ibb.co/pW3KXr0/fiverrhack.png" alt=""></a>
+          <a class="navbar-brand" href="/"><img class="w-50 p-1" src="https://i.ibb.co/pW3KXr0/fiverrhack.png" alt=""></a>
         </li>
         <li>
           <a class="nav-link" aria-current="page" href="#">Home</a>
@@ -11,14 +11,23 @@
         <li>
           <a class="nav-link" href="/login">Conviértete en vendedor</a>
         </li>
-        </li>
       </ul>
-      <div class="nab-bar-login">
-        <a href="/login" class="btn btn-outline-success">Iniciar sesion</button></a>
-      </div>
-      <div>
-        <a href="/register"><button class="btn btn-outline-success">Unete</button></a>
-      </div>
+        {{#if currentUser}}
+          <div class="nab-bar-login">
+            <a class="btn btn-secondary" role="button" href="/logout">Logout</a>
+          </div>
+          <div class="nab-bar-login">
+            <a href="/profile"><button class="btn btn-outline-success"><img class="navbar-user-img" src="{{currentUser.img}}" alt="user"></button></a>
+          </div>
+        {{else}}
+          <div class="nab-bar-login">
+            <a href="/login" class="btn btn-outline-success">Iniciar sesion</button></a>
+          </div>
+          <div class="nab-bar-login">
+            <a href="/register"><button class="btn btn-outline-success">Unete</button></a>
+          </div>
+        {{/if}}
+
     </div>
   </div>
 </nav>

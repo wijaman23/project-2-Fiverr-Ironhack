@@ -1,8 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,700;1,400&display=swap');
 
+/*BODY*/
+.container-body{
+    margin-bottom: 300px;
+}
+
 /* NAVBAR */
 .nab-bar-login {
     margin-right: 10px;
+}
+.navbar-user-img {
+    width: 40px;
+    height: auto;
 }
 
 /* FOOTER */
@@ -53,6 +62,12 @@
 .index-btn-a {
     text-decoration: none;
     color: grey;
+}
+
+/*Errores*/
+.container-errores {
+    margin-top: 100px;
+    margin-left: 100px;
 }
 
 /*Product form*/

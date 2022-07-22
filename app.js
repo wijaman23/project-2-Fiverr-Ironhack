@@ -14,8 +14,27 @@ app.use(express.urlencoded({ extended: false })) //coge la peticion del formular
 require("./config/db.config")
 require("./config/hbs.config")
 
+const { session, loadUser } = require('./config/session.config')
+app.use(session)
+app.use(loadUser)
+
 const routes = require("./config/routes.config");
-app.use("/", routes);
+app.use("/", routes)
+
+// Errores 400
+app.use((req, res, next) => {
+    next(createError(404, 'Page not found'))
+  });
+  
+// Errores 500
+app.use((error, req, res, next) => {
+    console.error(error);
+    const message = error.message;
+    const metadata = (app.get('env') === 'development') ? error : {};
+    const status = error.status || 500;
+    res.status(status)
+      .render(`errors/500`, { message, metadata })
+});
 
 //LLamada a puerto de escucha 3000
 const port = 3000;
