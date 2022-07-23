@@ -2,6 +2,7 @@ const { User } = require('../models');
 const expressSession = require('express-session');
 const MongoStore = require("connect-mongo")
 const mongoose = require('mongoose')
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/fiverrHackBd'
 
 const session = expressSession({
   secret: process.env.SESSION_SECRET || 'super secret',

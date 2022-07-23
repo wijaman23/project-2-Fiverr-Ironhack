@@ -28,6 +28,10 @@
                         {{/each}}
                 </select>
             </div>
+            <div class="mb-3">
+                <label for="maker" class="form-label">{{currentUser.name}}</label>
+                <input type="text" class="form-control" name="maker" value="{{currentUser.id}}">
+            </div>
             <button type="submit" class="btn btn-primary">Enviar formulario</button>
         </form>
     </div>

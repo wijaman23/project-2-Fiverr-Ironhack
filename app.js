@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require("express") //Libreria de node para crear un servidor web
 const createError = require("http-errors") //Libreria de errores, se requiere donde vayamos a mostrar los errores 200-500
 

@@ -38,6 +38,11 @@ const productSchema = new Schema ({
             enum: categoryProduct
         }]
     },
+    maker: {
+        type: Schema.Types.ObjectId,
+        required: true,
+        ref: "User",
+      },
 })
 
 productSchema.pre("validate", function (next) {

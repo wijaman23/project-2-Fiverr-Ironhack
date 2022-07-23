@@ -1,8 +1,12 @@
-const { Product } = require("../models")
+const { Product, User } = require("../models")
 const categoryProduct = require("../data/category.json")
 
 module.exports.newProduct = (req, res, next) => {
-    res.render('products/newProduct', {categoryProduct}) 
+    User.find()
+        .then((maker) => {
+            res.render("products/newProduct", { maker,  categoryProduct});
+        })
+        .catch((error) => next(error))
 }
 
 module.exports.createProduct = (req, res, next) => {

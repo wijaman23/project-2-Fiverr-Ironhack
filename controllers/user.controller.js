@@ -14,8 +14,18 @@ module.exports.doRegister = (req, res, next) => {
         .catch((error) => next(error))
 }
 module.exports.profile = (req, res, next) => {
-    res.render('auth/profile')
+    User.findById(req.params.id)
+        .populate('maker')
+        .then(product => {
+            if (product) {
+              res.render('auth/profile', { product })
+            } else {
+              res.redirect('/')
+            }
+          })
+        .catch((error) => next(error))
 }
+
 module.exports.doLogin = (req, res, next) => {
 
     function renderInvalidLogin() {
