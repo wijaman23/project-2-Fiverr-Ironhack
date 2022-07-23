@@ -1,3 +1,41 @@
-<h1>
-    holaa
-</h1>
+<div class="container-profile">
+    <div class="container-profile-user">
+        <div class="card" style="width: 18rem;">
+            <img src="{{user.img}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{user.name}}</h5>
+                <p class="card-text">{{user.email}}</p>
+            </div>
+        </div>
+        <div>
+            <a href="/newProduct" class="btn btn-light" role="button">Nuevo producto </a>
+        </div>
+    </div>
+    <div class="container-profile-card">
+        <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-xl-6 g-4">
+            {{#each user.products as |product|}}
+                <div class="col">
+                    <div class="card">
+                        <img src="{{product.img}}" class="container-img-profile-product" alt="img">
+                        <div class="card-body">
+                            <div class="container-product-title">
+                                <h6>{{product.title}}</h6>
+                            </div>
+                            <small class="autor-index">{{product.maker.name}}</small>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <small>A partir de</small>
+                                <h4 class="card-text">{{product.price}}€</h4>
+                                <a class="index-detail" href="/{{product.id}}">Detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+
+

@@ -41,7 +41,7 @@ const productSchema = new Schema ({
     maker: {
         type: Schema.Types.ObjectId,
         required: true,
-        ref: "User",
+        ref: 'User',
       },
 })
 

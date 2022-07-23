@@ -9,13 +9,12 @@
     <form action="/login" method="post">
         <div class="input-group mb-2">
             <span class="input-group-text"><i class="fa fa-envelope fa-fw"></i></span>
-            <input type="text" name="email" value="{{ user.email }}" class="form-control {{#if errors.email }}is-invalid{{/if}}" placeholder="name@exaple.org">
+            <input type="text" name="email" value="{{ user.email }}" class="form-control {{#if errors.email }}is-invalid{{/if}}" placeholder="Inserte correo usuario">
             {{#if errors.email}}<div class="invalid-feedback">{{ errors.email }}</div>{{/if}}
         </div>
-    
         <div class="input-group mb-3">
             <span class="input-group-text"><i class="fa fa-lock fa-fw"></i></span>
-            <input type="password" name="password" class="form-control {{#if errors.password }}is-invalid{{/if}}" placeholder="User password">
+            <input type="password" name="password" class="form-control {{#if errors.password }}is-invalid{{/if}}" placeholder="Inserte contraseña">
             {{#if errors.password}}<div class="invalid-feedback">{{ errors.password }}</div>{{/if}}
          </div>
     

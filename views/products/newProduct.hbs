@@ -1,5 +1,5 @@
 <div class="container-product-form">
-    <h1 class="product-form-title">Formulario nuevo servicio</h1>
+    <h1 class="product-form-title">Crear nuevo servicio</h1>
     <div class="product-form">
         <form action="/newProduct" method="post">
             <div class="mb-3">
@@ -28,11 +28,11 @@
                         {{/each}}
                 </select>
             </div>
-            <div class="mb-3">
+            <div class="form-label-hidden" >
                 <label for="maker" class="form-label">{{currentUser.name}}</label>
                 <input type="text" class="form-control" name="maker" value="{{currentUser.id}}">
             </div>
-            <button type="submit" class="btn btn-primary">Enviar formulario</button>
+            <button type="submit" class="btn btn-primary">Añadir servicio</button>
         </form>
     </div>
 </div>

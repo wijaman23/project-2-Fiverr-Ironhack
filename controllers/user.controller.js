@@ -1,5 +1,20 @@
 const mongoose = require('mongoose')
-const { User } = require("../models")
+const { Product, User } = require("../models")
+const categoryProduct = require("../data/category.json")
+
+module.exports.index = (req, res, next) => {
+    const searchCategory = req.query.category
+
+    if (searchCategory) {
+        Product.find({category: {$in: searchCategory}})
+            .then(products => res.render('index', {products, categoryProduct}))
+            .catch((error) => next(error))
+    } else {
+        Product.find()
+            .then(products => res.render('index', {products, categoryProduct}))
+            .catch((error) => next(error))
+    }
+}
 
 module.exports.login = (req, res, next) => {
     res.render('auth/login')
@@ -15,10 +30,16 @@ module.exports.doRegister = (req, res, next) => {
 }
 module.exports.profile = (req, res, next) => {
     User.findById(req.params.id)
-        .populate('maker')
-        .then(product => {
-            if (product) {
-              res.render('auth/profile', { product })
+        .populate({
+            path : 'products',        
+            populate : {
+              path : 'maker',
+              select: 'name'
+            }
+        })
+        .then(user => {
+            if (user) {
+              res.render('auth/profile', { user })
             } else {
               res.redirect('/')
             }
@@ -56,7 +77,7 @@ module.exports.doLogin = (req, res, next) => {
         .catch((error) => next(error))
 }
 module.exports.logout = (req, res, next) => {
-    res.render('auth/login')
+    res.redirect('/')
     req.session.destroy()
 }
 

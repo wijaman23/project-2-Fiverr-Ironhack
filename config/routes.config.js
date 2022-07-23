@@ -2,8 +2,7 @@ const express = require("express")
 const router = express.Router()
 const { home, user, product } = require('../controllers')
 
-router.get('/', home.index)
-
+router.get('/', user.index)
 router.get('/login', user.login)
 router.post('/login', user.doLogin)
 router.get('/register', user.register)

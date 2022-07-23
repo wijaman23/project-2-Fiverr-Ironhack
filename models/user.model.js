@@ -43,6 +43,12 @@ const userSchema = new Schema ({
     },
 })
 
+userSchema.virtual('products', {
+    ref: 'Product',
+    localField: '_id',
+    foreignField: 'maker'
+})
+
 userSchema.pre("validate", function (next) {
     this.img = this.img || undefined
     next()
