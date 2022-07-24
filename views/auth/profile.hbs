@@ -3,36 +3,56 @@
         <div class="card" style="width: 18rem;">
             <img src="{{user.img}}" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">{{user.name}}</h5>
-                <p class="card-text">{{user.email}}</p>
+                <div class="container-body-profile-user">
+                    <a href="/profile/{{user.id}}/edit"><i class="fa fa-pencil"></i></a>
+                    <h5 class="card-title">{{user.name}}</h5>
+                    <p class="card-text">{{user.email}}</p>
+                </div>
             </div>
-        </div>
-        <div>
-            <a href="/newProduct" class="btn btn-light" role="button">Nuevo producto </a>
         </div>
     </div>
     <div class="container-profile-card">
+        <h2>Mis servicios</h2>
         <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-xl-6 g-4">
             {{#each user.products as |product|}}
                 <div class="col">
                     <div class="card">
                         <img src="{{product.img}}" class="container-img-profile-product" alt="img">
                         <div class="card-body">
-                            <div class="container-product-title">
-                                <h6>{{product.title}}</h6>
+                            <div class="container-product-profile">
+                                <p>{{product.title}}</p>
                             </div>
-                            <small class="autor-index">{{product.maker.name}}</small>
                         </div>
                         <div class="card">
                             <div class="card-body">
-                                <small>A partir de</small>
                                 <h4 class="card-text">{{product.price}}€</h4>
-                                <a class="index-detail" href="/{{product.id}}">Detalles</a>
+                            </div>
+                            <div class="container-profile-btn">
+                                <div>
+                                    <form action="/product/{{product.id}}/edit" method="get">
+                                        <button type="submit" class="btn btn-outline-success">Editar</button>
+                                    </form>
+                                </div>
+                                <div>
+                                    <form action="/product/{{product.id}}/delete" method="post">
+                                        <button type="submit" class="btn btn-outline-danger">Borrar</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             {{/each}}
+            <a href="/newProduct" class="btn btn-light" role="button">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="../img/agregar.png" class="container-img-profile-product" alt="img">
+                        <p>Crear nuevo <br> servicio</p>
+                    </div>
+                </div>
+            </div>
+            </a>
         </div>
     </div>
 </div>

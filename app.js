@@ -26,7 +26,7 @@ app.use("/", routes)
 // Errores 400
 app.use((req, res, next) => {
     next(createError(404, 'Page not found'))
-  });
+});
   
 // Errores 500
 app.use((error, req, res, next) => {

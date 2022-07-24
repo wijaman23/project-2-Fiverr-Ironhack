@@ -1,15 +1,35 @@
-<div>
-    <h2>{{product.category}}</h2>
-    <h3>{{product.title}}</h3>
-    <h4>Luis Javier Muñoz</h4>
-    <small>{{product.description}}</small>
-    <img class="detail-img" src="{{product.img}}">
-    <h5>{{product.price}}</h5>
-
-    <a class="btn btn-primary" href="/">Pagina principal</a>
-    <form action="/product/{{product.id}}/delete" method="post">
-        <button type="submit" class="btn btn-danger">Delete</button>
-    </form>
+<div class="container mt-2 mb-2">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="images p-1 mt-3">
+                            <div class="text-center p-4"> <img class="img-fluid" id="main-image" src={{product.img}}  /> </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="product p-4">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center"> <i class="fa fa-long-arrow-left"></i> <span class="ml-1">Atras</span> </div> <i class="fa fa-shopping-cart text-muted"></i>
+                            </div>
+                            <div class="mt-4 mb-3"> <span class="text-uppercase text-muted brand">{{product.category}}</span>
+                                <h5 class="text-uppercase fs-2">{{product.title}}</h5>
+                                <div class="price d-flex flex-row align-items-center"> <span class="act-price fs-2">{{product.price}} €</span>
+                              
+                                </div>
+                            </div>
+                            <p class="about fs-5">{{product.description}}</p>
+                            <div class="sizes mt-5">
+                                <h6>Garantia de 30 días</h6> <label class="radio"> <input type="radio" name="size" value="S" checked> <span>Añadir a la cesta</span> </label>  <label class="radio">
+                            </div>
+                            <div class="cart mt-2 align-items-center"> <button class="btn btn-danger text-uppercase mr-2 px-4">Comprar ahora</button> <i class="fa fa-heart text-muted"></i> <i class="fa fa-share-alt text-muted"></i> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
 

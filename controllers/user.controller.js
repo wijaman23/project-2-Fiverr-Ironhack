@@ -3,19 +3,22 @@ const { Product, User } = require("../models")
 const categoryProduct = require("../data/category.json")
 
 module.exports.index = (req, res, next) => {
-    const searchCategory = req.query.category
+  const searchCategory = req.query.category
 
-    if (searchCategory) {
-        Product.find({category: {$in: searchCategory}})
-            .then(products => res.render('index', {products, categoryProduct}))
-            .catch((error) => next(error))
-    } else {
-        Product.find()
-            .then(products => res.render('index', {products, categoryProduct}))
-            .catch((error) => next(error))
-    }
+  if (searchCategory) {
+      Product.find({category: {$in: searchCategory}})
+
+          .populate('maker')
+
+          .then(products => res.render('index', {products, categoryProduct}))
+          .catch((error) => next(error))
+  } else {
+      Product.find()
+      .populate('maker')
+          .then(products => res.render('index', {products, categoryProduct}))
+          .catch((error) => next(error))
+  }
 }
-
 module.exports.login = (req, res, next) => {
     res.render('auth/login')
 }
@@ -80,4 +83,8 @@ module.exports.logout = (req, res, next) => {
     res.redirect('/')
     req.session.destroy()
 }
+module.exports.edit = (req, res, next) => {
+    res.render('auth/edit')
+}
+
 

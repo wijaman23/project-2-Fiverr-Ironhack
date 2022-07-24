@@ -7,7 +7,8 @@ const productSchema = new Schema ({
         type: String,
         trim: true,
         required: [true, 'Se requiere titulo'],
-        minLength: [13, 'Min 13 caracteres'],
+        minLength: [8, 'Min 8 caracteres'],
+        maxLength: [80, 'Max 80 caracteres'],
     },
     description: {
         type: String,

@@ -29,3 +29,6 @@ module.exports.deleteProduct = (req, res, next) => {
       .then(() => res.redirect('/'))
       .catch((error) => next(error))
 }
+module.exports.editProduct = (req, res, next) => {
+    res.render('products/editProduct')
+}
