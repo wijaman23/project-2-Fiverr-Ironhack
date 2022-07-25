@@ -1,1 +1,21 @@
-holaaaaaa
+<div class="container-product-form">
+    <h1 class="product-form-title">Editar usuario</h1>
+    <div class="product-form">
+        <form action="/profile/{{user.id}}" method="post">
+            <div class="mb-3">
+                <label for="title" class="form-label">Nombre</label>
+                <input type="text" class="form-control" name="name" value="{{user.name}}">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" name="email" value="{{user.email}}">
+            </div>
+            <div class="mb-3">
+                <label for="img" class="form-label">Imagen</label> 
+                <input type="text" class="form-control" name="img" value="{{user.img}}">
+            </div>
+            <button type="submit" class="btn btn-primary">Editar Uusario</button>
+        </form>
+        <a href="/profile/{{currentUser.id}}"><button class="btn btn-outline-success mt-2">Cancelar</button></a>
+    </div>
+</div>

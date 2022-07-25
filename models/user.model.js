@@ -10,16 +10,16 @@ const userSchema = new Schema ({
     name: {
         type: String,
         trim: true,
-        required: [true, 'Required name'],
-        minLength: [2, 'Min 2 characters'],
+        required: [true, 'Campo nombre requerido'],
+        minLength: [2, 'Minimo 2 caracteres'],
     },
     email: {
         type: String,
         trim: true,
         lowercase: true,
-        unique: [true, 'Email already exists'],
-        required: [true, 'Email address is required'],
-        match: [EMAIL_PATTERN, 'Invalid Email'],
+        unique: [true, 'Email existente'],
+        required: [true, 'Campo email requerido'],
+        match: [EMAIL_PATTERN, 'Email invalido'],
     },
     img:{
         type: String,
@@ -33,13 +33,13 @@ const userSchema = new Schema ({
                     return false
                 }
             },
-            message: img => "invalid URL"
+            message: img => "Invalida URL"
         },
     },
     password: {
         type: String,
-        required: [true, 'Required password'],
-        match: [PASSWORD_PATTERN, 'Invalid password'],
+        required: [true, 'Requerida contraseña'],
+        match: [PASSWORD_PATTERN, 'Invalida contraseña, min 8 y max 15 caracteres'],
     },
 })
 

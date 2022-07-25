@@ -1,1 +1,35 @@
-holaaa
+<div class="container-product-form">
+    <h1 class="product-form-title">Editar servicio</h1>
+    <div class="product-form">
+        <form action="/product/{{product.id}}" method="post">
+            <div class="mb-3">
+                <label for="title" class="form-label">Titulo</label>
+                <input type="text" class="form-control" name="title" value="{{product.title}}">
+            </div>
+            <div class="mb-3">
+                <label for="img" class="form-label">Imagen</label>
+                <input type="text" class="form-control" name="img" value="{{product.img}}">
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Descripcion</label> 
+                <input type="text" class="form-control" name="description" value="{{product.description}}">
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Precio</label>
+                <input type="number" class="form-control" name="price" value="{{product.price}}">
+            </div>
+            <div class="mb-3">
+                <label for="category" class="form-label">Categoria</label>
+                <select class="form-select" aria-label="Default select example" name="category">
+                        {{#each categoryProduct as |category|}}
+                            <option value="{{category}}" selected="{{product.category}}">
+                                {{category}}
+                            </option>     
+                        {{/each}}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Editar servicio</button>
+        </form>
+    <a href="/profile/{{currentUser.id}}"><button class="btn btn-outline-success mt-2">Cancelar</button></a>
+    </div>
+</div>

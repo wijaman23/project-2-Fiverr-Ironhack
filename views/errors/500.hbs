@@ -1,9 +1,9 @@
-<div class="container-errores">
-    <h4>{{ message }}</h4>
+<div>
+    <p>{{ message }}</p>
     {{#if metadata.status}}<p>{{ metadata.status }}</p>{{/if}}
     {{#if metadata.stack}}<pre>{{ metadata.stack }}</pre>{{/if}}
 </div>
-
+<a class="btn btn-secondary" role="button" href="/home">Return</a>
 
 
 

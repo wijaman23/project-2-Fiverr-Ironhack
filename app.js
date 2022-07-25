@@ -8,7 +8,6 @@ const app = express()
 
 app.set("views", __dirname + "/views")
 app.set("view engine", "hbs")
-
 app.use(express.static(`${__dirname}/public`))
 app.use(express.urlencoded({ extended: false })) //coge la peticion del formulario y la carga en el req.body
 
@@ -20,7 +19,7 @@ const { session, loadUser } = require('./config/session.config')
 app.use(session)
 app.use(loadUser)
 
-const routes = require("./config/routes.config");
+const routes = require("./config/routes.config")
 app.use("/", routes)
 
 // Errores 400
@@ -32,7 +31,7 @@ app.use((req, res, next) => {
 app.use((error, req, res, next) => {
     console.error(error);
     const message = error.message;
-    const metadata = (app.get('env') === 'development') ? error : {};
+    const metadata = (app.get('env') === 'development') ? error : {}
     const status = error.status || 500;
     res.status(status)
       .render(`errors/500`, { message, metadata })
