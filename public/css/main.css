@@ -90,7 +90,7 @@
     justify-content:center
 }
 .container-img-top-index {
-    margin-left: 2%;
+    margin-left: 1%;
 }
 .img-top-index {
     width: 60%;
@@ -123,7 +123,7 @@
 }
 /*Detail*/
 .product{
-    background-color: #eee
+    background-color: rgb(244, 241, 241)
 }
 .brand{
     font-size: 13px

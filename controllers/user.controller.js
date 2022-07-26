@@ -109,7 +109,7 @@ module.exports.doEdit = (req, res, next) => {
   const id = req.params.id
 
   User.findByIdAndUpdate(id, data)
-    .then(() => res.redirect('/'))
+    .then(() => res.redirect(`/profile/${req.user.id}`))
     .catch((error) => next(error))
 }
 

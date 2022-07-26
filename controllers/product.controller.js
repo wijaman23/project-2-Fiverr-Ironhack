@@ -52,7 +52,7 @@ module.exports.doEditProduct = (req, res, next) => {
   
     Product.findByIdAndUpdate(id, data)
       .then((product) => {
-        res.redirect('/');
+        res.redirect(`/profile/${req.user.id}`);
       })
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {
