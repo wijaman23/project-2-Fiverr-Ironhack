@@ -6,7 +6,7 @@ module.exports.index = (req, res, next) => {
   const searchCategory = req.query.category
 
   if (searchCategory) {
-      Product.find({category: {$in: searchCategory}})
+      Product.find({category: {$in: searchCategory}, })
           .populate('maker')
           .then(products => res.render('index', {products, categoryProduct}))
           .catch((error) => next(error))

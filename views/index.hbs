@@ -1,5 +1,5 @@
 <nav class="navbar bg-light">
-    <form class="container-fluid justify-content-start" method="get">
+    <form class="container-fluid justify-content-start mb-2" method="get">
         {{#each categoryProduct as |category|}}
             <div class="index-btn">
                 <button class="btn btn-sm btn-outline-secondary" type="submit" name="category" value="{{category}}">{{category}}</button>
@@ -9,7 +9,16 @@
             <button class="btn btn-sm btn-outline-secondary" type="submit" name="category"><a class="index-btn-a" href="/">Todos</a></button>
         </div>
     </form>
+    <form class="container-fluid justify-content-start" method="get">
+        <div class="index-btn">
+            <input class="search-input" type="text" name="title" value="{{ query.title }}" placeholder="Introduce el titulo">
+        </div>
+        <div class="index-btn">
+            <button class="btn btn-outline-success" type="submit">Buscar</button>  
+        </div> 
+    </form>
 </nav>
+
 <div class="py-5" id="venue">
     <div class="container border">
         <div class="row bg-light animate-in-down">
@@ -22,13 +31,13 @@
                  <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active" data-bs-interval="5000">
-                            <img src="https://cdn01.alison-static.net/careers/career/computer-programmer.jpg" class="d-block w-100" alt="...">
+                            <img src="https://cdn01.alison-static.net/careers/career/computer-programmer.jpg" class="d-block w-100" alt="imagen-carrusel">
                         </div>
                         <div class="carousel-item" data-bs-interval="4000">
-                            <img src="https://images.squarespace-cdn.com/content/v1/5475f6eae4b0821160f6ac3e/1547489340099-59JISI69A0JXXB06ELWR/Marketing+specialist+taking+a+data+science+course.jpg" class="d-block w-100" alt="...">
+                            <img src="https://images.squarespace-cdn.com/content/v1/5475f6eae4b0821160f6ac3e/1547489340099-59JISI69A0JXXB06ELWR/Marketing+specialist+taking+a+data+science+course.jpg" class="d-block w-100" alt="imagen-carrusel-2">
                         </div>
                         <div class="carousel-item" data-bs-interval="4000">
-                            <img src="https://www.signifytechnology.com/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBd3hGQlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--6044d438c9af0f9c124d13c7f84ac70b6c991f47/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9MY21WemFYcGxTU0lOT1RBd2VEa3dNRDRHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--c2f21ccfe76283a8dd7a61c6749f4ee3c5f33e43/pexels_photo_1181275.jpeg" class="d-block w-100" alt="...">
+                            <img src="https://www.signifytechnology.com/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBd3hGQlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--6044d438c9af0f9c124d13c7f84ac70b6c991f47/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9MY21WemFYcGxTU0lOT1RBd2VEa3dNRDRHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--c2f21ccfe76283a8dd7a61c6749f4ee3c5f33e43/pexels_photo_1181275.jpeg" class="d-block w-100" alt="imagen-carrusel-3">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
@@ -44,7 +53,6 @@
         </div>
     </div>
 </div>
- 
 <div class="container-index">
     <h2>Qué servicio comprar ahora</h2>
     <h5 class="index-title-second">Nuestros servicios ofrecidos para ti</h5>
