@@ -1,4 +1,4 @@
-<div class="d-flex align-items-center flex-column">
+<div class="d-flex align-items-center flex-column mt-5">
     <div>
         <h2>Unete a Fivver-Ironhack</h2>
     </div>
@@ -15,12 +15,12 @@
 
             <div class="input-group mb-3">
                 <span class="input-group-text"><i class="fa fa-envelope fa-fw"></i></span>
-                <input type="email" name="email" class="form-control {{#if errors.email }}is-invalid{{/if}}" placeholder="Insert email" value="{{user.email}}">
+                <input type="email" name="email" class="form-control {{#if errors.email }}is-invalid{{/if}}" placeholder="Insertar email" value="{{user.email}}">
                 {{#if errors.email}}<div class="invalid-feedback">{{ errors.email }}</div>{{/if}}
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text"><i class="fa fa-lock fa-fw"></i></span>
-                <input type="password" name="password" class="form-control {{#if errors.password }}is-invalid{{/if}}" placeholder="Insert password">
+                <input type="password" name="password" class="form-control {{#if errors.password }}is-invalid{{/if}}" placeholder="Insertar contraseña">
                 {{#if errors.password}}<div class="invalid-feedback">{{ errors.password }}</div>{{/if}}
             </div>
             <div class="d-grid">

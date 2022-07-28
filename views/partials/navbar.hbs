@@ -6,7 +6,7 @@
           <a class="navbar-brand mb-0 h1" href="/"><img class="d-inline-block align-top" src="https://i.ibb.co/pW3KXr0/fiverrhack.png" width="200" height="35" alt="logo"></a>
         </li>
         <li>
-          <a class="nav-link" aria-current="page" href="/">Home</a>
+          <a class="nav-link" aria-current="page" href="/">Inicio</a>
         </li>
         {{#if currentUser}}
 
@@ -18,10 +18,10 @@
       </ul>
         {{#if currentUser}}
           <div class="nab-bar-login">
-            <a class="btn btn-secondary" role="button" href="/logout">Logout</a>
+            <a class="btn btn-secondary" role="button" href="/logout">Desconectar</a>
           </div>
           <div class="nab-bar-login">
-            <a href="/profile/{{currentUser.id}}"><button class="btn btn-outline-success"><img class="navbar-user-img" src="{{currentUser.img}}" alt="user"></button></a>
+            <a href="/profile/{{currentUser.id}}"><img class="navbar-user-img rounded-circle" src="{{currentUser.img}}" alt="user"></a>
           </div>
         {{else}}
           <div class="nab-bar-login">

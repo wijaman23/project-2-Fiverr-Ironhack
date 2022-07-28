@@ -94,6 +94,11 @@
     width: 60%;
 }
 
+/*Login*/
+.img-login {
+    width: 80%;
+}
+
 /*Errores*/
 .container-errores {
     margin-top: 100px;

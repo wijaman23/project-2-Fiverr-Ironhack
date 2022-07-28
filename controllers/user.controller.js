@@ -5,18 +5,21 @@ const categoryProduct = require("../data/category.json")
 module.exports.index = (req, res, next) => {
   const searchCategory = req.query.category
   const searchTitle = req.query.title
+  
+  const criteria = {}
 
-  if (searchCategory || searchTitle) {
-      Product.find({category: {$in: searchCategory}, title: {$in: searchTitle}})
-          .populate('maker')
-          .then(products => res.render('index', {products, categoryProduct, searchTitle}))
-          .catch((error) => next(error))
-  } else {
-      Product.find()
-          .populate('maker')
-          .then(products => res.render('index', {products, categoryProduct, searchTitle}))
-          .catch((error) => next(error))
+  if (searchCategory) {
+    criteria.category = {$in: searchCategory}
   }
+
+  if (searchTitle) {
+    criteria.title= {$in: searchTitle}
+  }
+
+  Product.find(criteria)
+      .populate('maker')
+      .then(products => res.render('index', {products, categoryProduct, searchTitle}))
+      .catch((error) => next(error))
 }
 module.exports.login = (req, res, next) => {
     res.render('auth/login')
@@ -50,8 +53,7 @@ module.exports.doLogin = (req, res, next) => {
       })
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {
-          console.error(error);
-          res.render('auth/login', { errors: error.errors, user });
+          res.render('auth/login', { errors: error.errors, user })
         } else {
           next(error);
         }
@@ -109,9 +111,18 @@ module.exports.doEdit = (req, res, next) => {
   const data = ({name, email, img } = req.body)
   const id = req.params.id
 
-  User.findByIdAndUpdate(id, data)
+  User.findByIdAndUpdate(id, data, {runValidators: true})
     .then(() => res.redirect(`/profile/${req.user.id}`))
-    .catch((error) => next(error))
+    .catch(error => {
+      if (error instanceof mongoose.Error.ValidationError) {
+        res.render('auth/edit', {
+          errors: error.errors,
+          user: data,
+        })
+      } else {
+        next(error);
+      }
+    })
 }
 
 

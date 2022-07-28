@@ -4,10 +4,8 @@ const categoryProduct = require("../data/category.json")
 
 module.exports.newProduct = (req, res, next) => {
     User.find()
-        .then((maker) => {
-            res.render("products/newProduct", { maker,  categoryProduct});
-        })
-        .catch((error) => next(error))
+      .then((maker) => res.render("products/newProduct", { maker, categoryProduct }))
+      .catch((error) => next(error))
 }
 
 module.exports.createProduct = (req, res, next) => {
@@ -22,7 +20,7 @@ module.exports.detailProduct = (req, res, next) => {
     const id = req.params.id
 
     Product.findById(id)
-        .then(product => res.render('products/detailProduct', {product}))
+        .then(product => res.render('products/detailProduct', { product }))
         .catch((error) => next(error))
 }
 module.exports.deleteProduct = (req, res, next) => {
@@ -50,7 +48,7 @@ module.exports.doEditProduct = (req, res, next) => {
     const data = ({ title, img, description, price, category } = req.body)
     const id = req.params.id
   
-    Product.findByIdAndUpdate(id, data)
+    Product.findByIdAndUpdate(id, data, {runValidators: true})
       .then((product) => {
         res.redirect(`/profile/${req.user.id}`);
       })
@@ -68,5 +66,5 @@ module.exports.doEditProduct = (req, res, next) => {
         } else {
           next(error);
         }
-      });
-  };
+      })
+  }

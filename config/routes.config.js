@@ -20,7 +20,7 @@ router.post('/product/:id/delete', secure.isloged, product.deleteProduct)
 router.get('/product/:id/edit', secure.isloged, product.editProduct)
 router.post('/product/:id', secure.isloged, product.doEditProduct);
 
-router.get('/cart', secure.isloged, cart.cart)
+router.get('/cart/:id', secure.isloged, cart.cart)
 router.get('/cart/buy', secure.isloged, cart.buy)
 
 module.exports = router
