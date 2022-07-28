@@ -4,16 +4,17 @@ const categoryProduct = require("../data/category.json")
 
 module.exports.index = (req, res, next) => {
   const searchCategory = req.query.category
+  const searchTitle = req.query.title
 
-  if (searchCategory) {
-      Product.find({category: {$in: searchCategory}, })
+  if (searchCategory || searchTitle) {
+      Product.find({category: {$in: searchCategory}, title: {$in: searchTitle}})
           .populate('maker')
-          .then(products => res.render('index', {products, categoryProduct}))
+          .then(products => res.render('index', {products, categoryProduct, searchTitle}))
           .catch((error) => next(error))
   } else {
       Product.find()
           .populate('maker')
-          .then(products => res.render('index', {products, categoryProduct}))
+          .then(products => res.render('index', {products, categoryProduct, searchTitle}))
           .catch((error) => next(error))
   }
 }

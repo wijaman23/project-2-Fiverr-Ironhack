@@ -37,6 +37,10 @@
 .row-2{
     background-color:#d7dadd !important;
 }
+.footer-link {
+    text-decoration: none;
+    color: black;
+}
 
 /*INDEX*/
 .search-input {
