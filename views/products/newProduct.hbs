@@ -1,26 +1,29 @@
-<div class="container-product-form">
+div class="container-product-form">
     <h1 class="product-form-title">Crear nuevo servicio</h1>
     <div class="product-form">
         <form action="/newProduct" method="post">
             <div class="mb-3">
                 <label for="title" class="form-label">Titulo</label>
-                <input type="text" class="form-control" name="title">
+                <input type="text" name="title" class="form-control {{#if errors.title }}is-invalid{{/if}}" placeholder="Inserte el titulo" value="{{product.title}}">
+                {{#if errors.title}}<div class="invalid-feedback">{{ errors.title }}</div>{{/if}}
             </div>
             <div class="mb-3">
                 <label for="img" class="form-label">Imagen</label>
-                <input type="text" class="form-control" name="img">
+                <input type="text" class="form-control" name="img" placeholder="Inserte su imagen">
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Descripcion</label>
-                <input type="text" class="form-control" name="description">
+                <input type="text" name="description" class="form-control {{#if errors.description }}is-invalid{{/if}}" placeholder="Inserte la descripcion" value="{{product.description}}">
+                {{#if errors.description}}<div class="invalid-feedback">{{ errors.description }}</div>{{/if}}
             </div>
             <div class="mb-3">
                 <label for="price" class="form-label">Precio</label>
-                <input type="number" class="form-control" name="price">
+                <input type="number" name="price" class="form-control {{#if errors.price }}is-invalid{{/if}}" placeholder="Inserte un precio" value="{{product.price}}">
+                {{#if errors.price}}<div class="invalid-feedback">{{ errors.price }}</div>{{/if}}
             </div>
-            <div class="mb-3">
-                <label for="category" class="form-label">Categoria</label>
-                <select class="form-select" aria-label="Default select example" name="category">
+            <div class="mb-3">{{!queda arreglar error de renderizacion de categorias cuando se filtran errores}}
+                <label for="category" class="form-label" >Categoria</label>
+                <select class="form-select" aria-label="Default select example" name="category" >
                         {{#each categoryProduct as |category|}}
                             <option value="{{category}}">
                                 {{category}}

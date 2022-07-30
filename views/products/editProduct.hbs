@@ -1,10 +1,11 @@
 <div class="container-product-form">
     <h1 class="product-form-title">Editar servicio</h1>
     <div class="product-form">
-        <form action="/product/{{product.id}}" method="post">
+        <form action="/product/{{product.id}}/edit" method="post">
             <div class="mb-3">
                 <label for="title" class="form-label">Titulo</label>
-                <input type="text" class="form-control" name="title" value="{{product.title}}">
+                <input type="text" class="form-control {{#if errors.title }}is-invalid{{/if}}" name="title" value="{{product.title}}">
+                {{#if errors.title}}<div class="invalid-feedback">{{ errors.title }}</div>{{/if}}
             </div>
             <div class="mb-3">
                 <label for="img" class="form-label">Imagen</label>
@@ -12,21 +13,18 @@
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Descripcion</label> 
-                <input type="text" class="form-control" name="description" value="{{product.description}}">
+                <input type="text" class="form-control {{#if errors.description }}is-invalid{{/if}}" name="description" value="{{product.description}}">
+                {{#if errors.description}}<div class="invalid-feedback">{{ errors.description }}</div>{{/if}}
             </div>
             <div class="mb-3">
                 <label for="price" class="form-label">Precio</label>
-                <input type="number" class="form-control" name="price" value="{{product.price}}">
+                <input type="number" class="form-control {{#if errors.price }}is-invalid{{/if}}" name="price" value="{{product.price}}">
+                {{#if errors.price}}<div class="invalid-feedback">{{ errors.price }}</div>{{/if}}
             </div>
-            <div class="mb-3">
+            <div class="mb-3"> {{!queda arreglar error de renderizacion de categorias cuando se filtran errores}}
                 <label for="category" class="form-label">Categoria</label>
-                <select class="form-select" aria-label="Default select example" name="category">
-                        {{#each categoryProduct as |category|}}
-                            <option value="{{category}}" selected="{{product.category}}">
-                                {{category}}
-                            </option>     
-                        {{/each}}
-                </select>
+                <input type="text" class="form-control {{#if errors.category }}is-invalid{{/if}}" name="category" value="{{product.category}}" readonly="readonly">
+                {{#if errors.category}}<div class="invalid-feedback">{{ errors.category }}</div>{{/if}}
             </div>
             <button type="submit" class="btn btn-primary">Editar servicio</button>
         </form>

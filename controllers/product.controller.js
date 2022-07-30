@@ -4,16 +4,31 @@ const categoryProduct = require("../data/category.json")
 
 module.exports.newProduct = (req, res, next) => {
     User.find()
-      .then((maker) => res.render("products/newProduct", { maker, categoryProduct }))
+      .then((maker) => res.render('products/newProduct', { maker, categoryProduct }))
       .catch((error) => next(error))
 }
 
 module.exports.createProduct = (req, res, next) => {
-    const data = req.body
-  
+    const data = {title, description, img, price, category} = req.body
+    
     Product.create(data)
       .then(() => res.redirect('/'))
-      .catch((error) => next(error))
+      .catch(error => {
+        if (error instanceof mongoose.Error.ValidationError) {
+          User.find()
+          .then((maker)=> {
+            res.render('products/newProduct', {
+              errors: error.errors,
+              product: data,
+              maker,
+              categoryProduct,
+             })
+          })
+          .catch(next)
+          } else {
+            next(error);
+          }
+        })
 }
 
 module.exports.detailProduct = (req, res, next) => {
@@ -37,7 +52,7 @@ module.exports.editProduct = (req, res, next) => {
     .then((product) => {
       if (product) {
         return User.find()
-            .then(user => res.render('products/editProduct', { product, user, categoryProduct }))
+            .then(maker => res.render('products/editProduct', { product, maker, categoryProduct }))
       } else {
             res.redirect("/");
       }
@@ -46,6 +61,7 @@ module.exports.editProduct = (req, res, next) => {
 }
 module.exports.doEditProduct = (req, res, next) => {
     const data = ({ title, img, description, price, category } = req.body)
+    data.id = req.params.id
     const id = req.params.id
   
     Product.findByIdAndUpdate(id, data, {runValidators: true})
@@ -54,17 +70,14 @@ module.exports.doEditProduct = (req, res, next) => {
       })
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {
-          User.find()
-            .then((users) => {
-              res.render("products/editProduct", {
-                errors: error.errors,
-                product: data,
-                users,
-              });
+            res.render('products/editProduct', {
+              errors: error.errors,
+              product: data,
+              categoryProduct,
+              
             })
-            .catch(next);
         } else {
           next(error);
         }
       })
-  }
+}

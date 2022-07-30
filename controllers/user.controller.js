@@ -63,20 +63,29 @@ module.exports.register = (req, res, next) => {
     res.render('auth/register')
 }
 module.exports.doRegister = (req, res, next) => {
-    const data = { name, email, img, password } = req.body
+    const { email } = req.body
 
-    User.create(req.body)
-        .then(() => res.redirect('/login'))
-        .catch(error => {
-          if (error instanceof mongoose.Error.ValidationError) {
-            res.render('auth/register', {
-              errors: error.errors,
-              user: data,
-            });
-          } else {
-            next(error);
-          }
-        })
+    function renderError (errors) {
+      res.render("auth/register", { user: req.body, errors })
+    }
+
+    User.findOne({ email })
+      .then(user => {
+        if (user) {
+            renderError({email: "Este email ya esta registrado"})
+        } else {
+            const user = req.body
+            return User.create(user)
+            .then((user) => res.redirect('/login'))
+        }
+    })
+    .catch((error) => {
+        if (error instanceof mongoose.Error.ValidationError) {
+            renderError(error.errors)
+        } else {
+          next(error)
+        }
+      })
 }
 module.exports.profile = (req, res, next) => {
     User.findById(req.params.id)
@@ -109,6 +118,7 @@ module.exports.edit = (req, res, next) => {
 }
 module.exports.doEdit = (req, res, next) => {
   const data = ({name, email, img } = req.body)
+  data.id = req.params.id
   const id = req.params.id
 
   User.findByIdAndUpdate(id, data, {runValidators: true})

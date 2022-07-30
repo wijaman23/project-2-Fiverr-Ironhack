@@ -1,7 +1,7 @@
 <div class="container-product-form">
     <h1 class="product-form-title">Editar usuario</h1>
     <div class="product-form">
-        <form action="/profile/{{user.id}}" method="post">
+        <form action="/profile/{{user.id}}/edit" method="post">
             <div class="mb-3">
                 <label for="title" class="form-label">Nombre</label>
                 <input type="text" class="form-control {{#if errors.name }}is-invalid{{/if}}" name="name" value="{{user.name}}">

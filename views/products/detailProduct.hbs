@@ -27,7 +27,11 @@
                             <p class="about fs-5">{{product.description}}</p>
                             <div class="sizes mt-5">
                                 <h6>Garantia de 30 días</h6> 
-                                <a href="/cart/{{product.id}}"><button class="btn btn-outline-success">Añadir a la cesta</button></a>
+                                <form action="/cart" method="post">
+                                    <input type="hidden" name="productId" value="{{product.id}}">
+                                    <input type="hidden" name="quanty" value= 1 >
+                                    <button type="submit" class="btn btn-primary">Añadir a la cesta</button>
+                                </form>
                             </div>
                             <div class="cart mt-2 align-items-center"> 
                                 <a href="/cart/buy"><button class="btn btn-outline-danger">Comprar ahora</button></a>
