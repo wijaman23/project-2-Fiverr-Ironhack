@@ -1,5 +1,5 @@
-<div class="container-profile">
-    <div class="container-profile-user">
+ <div class="row g-0 m-5 mb-5">
+    <div class=" col-xl-3 col-md-5">
         <div class="card" style="width: 18rem;">
             <img src="{{user.img}}" class="card-img-top" alt="...">
             <div class="card-body">
@@ -11,9 +11,9 @@
             </div>
         </div>
     </div>
-    <div class="container-profile-card">
+    <div class=" col-xl-9 col-md-7">
         <h2>Mis servicios</h2>
-        <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-xl-6 g-4">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-6 g-2">
             {{#each user.products as |product|}}
                 <div class="col">
                     <div class="card">
@@ -56,3 +56,4 @@
         </div>
     </div>
 </div>
+

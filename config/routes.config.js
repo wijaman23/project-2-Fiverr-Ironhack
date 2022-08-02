@@ -23,5 +23,6 @@ router.post('/product/:id/edit', secure.isloged, product.doEditProduct);
 router.get('/cart', secure.isloged, cart.cart)
 router.post('/cart', secure.isloged, cart.addCart)
 router.get('/cart/buy', secure.isloged, cart.buy)
+router.post('/cart/buy', secure.isloged, cart.doBuy)
 
 module.exports = router

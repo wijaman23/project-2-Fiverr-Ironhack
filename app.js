@@ -1,6 +1,5 @@
 require('dotenv').config()
-const logger = require('morgan')
-
+const logger = require('morgan') //Libreria para ver el log de errores
 const express = require("express") //Libreria de node para crear un servidor web
 const createError = require("http-errors") //Libreria de errores, se requiere donde vayamos a mostrar los errores 200-500
 
@@ -16,6 +15,7 @@ app.use(logger('dev'))
 //Requerimos los archivos hbs y mongodb de la carpeta config
 require("./config/db.config")
 require("./config/hbs.config")
+require("./config/mailer.config")
 
 const { session, loadUser } = require('./config/session.config')
 app.use(session)

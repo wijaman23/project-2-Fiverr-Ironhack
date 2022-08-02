@@ -1,27 +1,21 @@
-<nav class="navbar navbar-expand navbar-expand-sm navbar-expand-md navbar-expand-xl bg-light ">
+<nav class="navbar navbar-expand navbar-expand-sm navbar-expand-md navbar-expand-xl bg-light">
   <div class="container-fluid">
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav me-auto">
         <li>
-          <a class="navbar-brand mb-0 h1" href="/"><img class="d-inline-block align-top" src="https://i.ibb.co/pW3KXr0/fiverrhack.png" width="200" height="35" alt="logo"></a>
+          <a class="navbar-brand mb-0 h1 ms-2" href="/"><img class="d-inline-block align-top" src="https://i.ibb.co/pW3KXr0/fiverrhack.png" width="200" height="35" alt="logo"></a>
         </li>
-        <li>
-          <a class="nav-link" aria-current="page" href="/">Inicio</a>
-        </li>
-        {{#if currentUser}}
-
-        {{else}}
-        <li>
-          <a class="nav-link" href="/login">Conviértete en vendedor</a>
-        </li>
-        {{/if}}
       </ul>
         {{#if currentUser}}
           <div class="nab-bar-login">
-            <a class="btn btn-secondary" role="button" href="/logout">Desconectar</a>
+             <a role="button" href="/cart"><span class="input-group-text"><i class="fa fa-cart-arrow-down fa-fw"></i></span></a>
           </div>
           <div class="nab-bar-login">
-            <a href="/profile/{{currentUser.id}}"><img class="navbar-user-img rounded-circle" src="{{currentUser.img}}" alt="user"></a>
+            <a class="btn btn-secondary" role="button" href="/logout">Salir</a>
+          </div>
+          <div class="nab-bar-login">
+            <a href="/profile/{{currentUser.id}}">
+            <img class="navbar-user-img rounded-circle" src="{{currentUser.img}}" alt="user"></a>
           </div>
         {{else}}
           <div class="nab-bar-login">

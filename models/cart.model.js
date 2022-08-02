@@ -13,7 +13,6 @@ const cartSchema = new Schema ({
             },
             quanty: {
                 type: Number,
-                minLength: [1, 'Minimo 1 producto'],
             }
         }]
 })

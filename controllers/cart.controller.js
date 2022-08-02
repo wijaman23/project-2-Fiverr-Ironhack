@@ -1,19 +1,23 @@
 const mongoose = require('mongoose')
 const { Product, User, Cart } = require("../models")
 const categoryProduct = require("../data/category.json")
+const { populate } = require('../models/user.model')
+const { sendBuyEmail } = require('../config/mailer.config')
+const swal = require('sweetalert') 
 
 module.exports.cart = (req, res, next) => {
     Cart.findOne({userId: req.user.id})
-        //.populate('userId')
+        .populate('userId')
+        .populate({
+            path: 'products',
+            populate: {
+                path: 'productId'
+            }
+        })
         .then(cart => res.render('carts/cart', { cart }))
         .catch((error) => next(error))
 }
 
-module.exports.buy = (req, res, next) => {
-    res.render('carts/buy')
-}
-
-// POST /cart. { productId, quanty }
 module.exports.addCart = (req, res, next) => {
     Cart.findOne({ userId: req.user.id})
         .then(cart => {
@@ -37,6 +41,31 @@ module.exports.addCart = (req, res, next) => {
                 } 
                 return cart.save(), res.redirect('/cart')
             }
+        })
+        .catch((error) => next(error))
+}
+
+module.exports.buy = (req, res, next) => {
+    Cart.findOne({userId: req.user.id})
+        .populate('userId')
+        .populate({
+            path: 'products',
+            populate: {
+                path: 'productId'
+            }
+        })
+        .then(cart => res.render('carts/buy', { cart }))
+        .catch((error) => next(error))
+}
+
+module.exports.doBuy = (req, res, next) => {
+    
+    Cart.findOne({userId: req.user.id})
+        .populate('userId')
+        .then((user) => {
+            swal("Enhorabuena!", "Ha realizado la compra, para finalizar haga click!", "success")
+            sendBuyEmail(user.userId.email)
+            res.redirect("/")
         })
         .catch((error) => next(error))
 }

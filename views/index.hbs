@@ -1,22 +1,31 @@
-<nav class="navbar bg-light">
-    <form class="container-fluid justify-content-start mb-2" method="get">
-        {{#each categoryProduct as |category|}}
+<nav class="navbar navbar-expand-md bg-light"> 
+    <div>
+        <button class="navbar-toggler mb-1 ms-1 btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span> <i class="fa fa-caret-down fa-fw" aria-hidden="true"></i>Categorias</span>
+        </button>
+        <div class="collapse navbar-collapse mb-3 ms-4" id="navbarNav">
+            <ul class="navbar-nav">      
+                <form method="get">
+                    {{#each categoryProduct as |category|}}
+                        <li class="nav-item btn-group">    
+                           <button class="btn btn-sm btn-outline-secondary" type="submit" name="category" value="{{category}}">{{category}}</button>
+                        </li>
+                    {{/each}}
+                    <li class="nav-item btn-group">
+                        <button class="btn btn-sm btn-outline-secondary" type="submit" name="category"><a class="index-btn-a" href="/">Todos</a></button>
+                    </li>
+                </form>
+            </ul>
+        </div>
+        <form class="d-flex" method="get">
+            <div class="index-btn ms-4">
+                <input class="search-input" type="text" name="title" value="{{ query.title }}" placeholder="Introduce el titulo">
+            </div>
             <div class="index-btn">
-                <button class="btn btn-sm btn-outline-secondary" type="submit" name="category" value="{{category}}">{{category}}</button>
-            </div>  
-        {{/each}}
-        <div class="index-btn">
-            <button class="btn btn-sm btn-outline-secondary" type="submit" name="category"><a class="index-btn-a" href="/">Todos</a></button>
-        </div>
-    </form>
-    <form class="container-fluid justify-content-start" method="get">
-        <div class="index-btn">
-            <input class="search-input" type="text" name="title" value="{{ query.title }}" placeholder="Introduce el titulo">
-        </div>
-        <div class="index-btn">
-            <button class="btn btn-outline-success" type="submit">Buscar</button>  
-        </div> 
-    </form>
+                <button class="btn btn-outline-success" type="submit">Buscar</button>  
+            </div> 
+        </form>
+    </div>
 </nav>
 
 <div class="py-5" id="venue">

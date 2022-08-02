@@ -4,26 +4,31 @@
         <form action="/product/{{product.id}}/edit" method="post">
             <div class="mb-3">
                 <label for="title" class="form-label">Titulo</label>
-                <input type="text" class="form-control {{#if errors.title }}is-invalid{{/if}}" name="title" value="{{product.title}}">
+                <input type="text" class="form-control {{#if errors.title }}is-invalid{{/if}}" name="title" value="{{product.title}}" style="background-color:transparent">
                 {{#if errors.title}}<div class="invalid-feedback">{{ errors.title }}</div>{{/if}}
             </div>
             <div class="mb-3">
                 <label for="img" class="form-label">Imagen</label>
-                <input type="text" class="form-control" name="img" value="{{product.img}}">
+                    <div class="d-flex">
+                        <div>
+                           <img class="img-edit" src="{{product.img}}" alt="">
+                        </div>
+                        <input type="text" class="form-control" name="img" value="{{product.img}}" style="background-color:transparent">
+                    </div>
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Descripcion</label> 
-                <input type="text" class="form-control {{#if errors.description }}is-invalid{{/if}}" name="description" value="{{product.description}}">
+                <input type="text" class="form-control {{#if errors.description }}is-invalid{{/if}}" name="description" value="{{product.description}}" style="background-color:transparent">
                 {{#if errors.description}}<div class="invalid-feedback">{{ errors.description }}</div>{{/if}}
             </div>
             <div class="mb-3">
                 <label for="price" class="form-label">Precio</label>
-                <input type="number" class="form-control {{#if errors.price }}is-invalid{{/if}}" name="price" value="{{product.price}}">
+                <input type="number" class="form-control {{#if errors.price }}is-invalid{{/if}}" name="price" value="{{product.price}}" style="background-color:transparent">
                 {{#if errors.price}}<div class="invalid-feedback">{{ errors.price }}</div>{{/if}}
             </div>
             <div class="mb-3"> {{!queda arreglar error de renderizacion de categorias cuando se filtran errores}}
                 <label for="category" class="form-label">Categoria</label>
-                <input type="text" class="form-control {{#if errors.category }}is-invalid{{/if}}" name="category" value="{{product.category}}" readonly="readonly">
+                <input type="text" class="form-control {{#if errors.category }}is-invalid{{/if}}" name="category" value="{{product.category}}" readonly="readonly" style="background-color:transparent">
                 {{#if errors.category}}<div class="invalid-feedback">{{ errors.category }}</div>{{/if}}
             </div>
             <button type="submit" class="btn btn-primary">Editar servicio</button>
