@@ -62,10 +62,20 @@ module.exports.doBuy = (req, res, next) => {
     
     Cart.findOne({userId: req.user.id})
         .populate('userId')
+        .then((user, cart) => {
+            swal("Enhorabuena!", "Ha realizado la compra, para finalizar haga click!", "success")
+            sendBuyEmail(user.userId.email)
+            res.redirect('/cart')
+        })
+        .catch((error) => next(error))
+
+
+    /*Cart.findByIdAndDelete({userId: req.user.id})
+        .populate('userId')
         .then((user) => {
             swal("Enhorabuena!", "Ha realizado la compra, para finalizar haga click!", "success")
             sendBuyEmail(user.userId.email)
-            res.redirect("/")
+            res.redirect('/')
         })
-        .catch((error) => next(error))
+        .catch((error) => next(error))*/
 }

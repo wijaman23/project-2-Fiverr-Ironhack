@@ -31,8 +31,8 @@
                 <input type="text" class="form-control {{#if errors.category }}is-invalid{{/if}}" name="category" value="{{product.category}}" readonly="readonly" style="background-color:transparent">
                 {{#if errors.category}}<div class="invalid-feedback">{{ errors.category }}</div>{{/if}}
             </div>
-            <button type="submit" class="btn btn-primary">Editar servicio</button>
+            <button type="submit" class="btn btn-primary mb-2">Editar servicio</button>
         </form>
-    <a href="/profile/{{currentUser.id}}"><button class="btn btn-outline-success mt-2">Cancelar</button></a>
+    <a href="/profile/{{currentUser.id}}"><button class="btn btn-outline-success mb-5">Cancelar</button></a>
     </div>
 </div>
