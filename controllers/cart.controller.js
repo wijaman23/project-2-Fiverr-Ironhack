@@ -6,7 +6,7 @@ const { sendBuyEmail } = require('../config/mailer.config')
 const swal = require('sweetalert') 
 
 module.exports.cart = (req, res, next) => {
-    Cart.findOne({userId: req.user.id})
+    Cart.findOne({userId: req.user.id, status: 'pending'})
         .populate('userId')
         .populate({
             path: 'products',
@@ -19,14 +19,14 @@ module.exports.cart = (req, res, next) => {
 }
 
 module.exports.addCart = (req, res, next) => {
-    Cart.findOne({ userId: req.user.id})
+    Cart.findOne({ userId: req.user.id, status: 'pending'})
         .then(cart => {
             if(!cart) {
                 return Cart.create({
                     userId: req.user._id , 
                     products: [{productId: req.body.productId, quanty: req.body.quanty}]    
-                },
-                res.redirect('/cart'))
+                })
+                .then(() => res.redirect('/cart'))
             } else {
                 if (req.body.quanty < 1) {
                     cart.products = cart.products.filter(p => p.id !== req.body.productId)
@@ -39,14 +39,15 @@ module.exports.addCart = (req, res, next) => {
                         cart.products.push({productId: req.body.productId, quanty: req.body.quanty})
                     }
                 } 
-                return cart.save(), res.redirect('/cart')
+                return cart.save()
+                    .then(() => res.redirect('/cart'))
             }
         })
         .catch((error) => next(error))
 }
 
 module.exports.buy = (req, res, next) => {
-    Cart.findOne({userId: req.user.id})
+    Cart.findOne({userId: req.user.id, status: 'pending'})
         .populate('userId')
         .populate({
             path: 'products',
@@ -60,7 +61,7 @@ module.exports.buy = (req, res, next) => {
 
 module.exports.doBuy = (req, res, next) => {
     
-    Cart.findOne({userId: req.user.id})
+    Cart.findOneAndUpdate({userId: req.user.id, status: 'pending'}, {status: 'completed'})
         .populate('userId')
         .then((user) => {
             swal("Enhorabuena!", "Ha realizado la compra, para finalizar haga click!", "success")

@@ -14,7 +14,14 @@ const cartSchema = new Schema ({
             quanty: {
                 type: Number,
             }
-        }]
+        }],
+        status: {
+            type: String,
+            default: 'pending',
+            enum: [
+                'pending', 'completed'
+            ]
+        }
 })
 
 const Cart = mongoose.model('Cart', cartSchema)

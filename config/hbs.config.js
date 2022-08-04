@@ -3,27 +3,24 @@ const hbs = require("hbs")
 hbs.registerPartials(__dirname + "/../views/partials")
 
 hbs.registerHelper('totalPrice', function (products) {
-    return products.reduce((acumulador, product) => acumulador + product.price, 0)
+    return products?.reduce((acumulador, product) => acumulador + product.productId.price, 0)
 })
 
 hbs.registerHelper('count', function (products) {
-    let count = 0
-    
-    for (let i = 0; i < products.length; i++) {
-        count++
-    }
-
-    return count
+    return products?.length
 })
 
 hbs.registerHelper('prural', function (products) {
-
-    if (products <= 1) {
+    if (products?.length <= 1) {
         return ""
-    }
-    else {
+    } else {
         return "s"
     }
 })
+
+hbs.registerHelper('totalPriceCost', function (products) {
+    return products?.reduce((acumulador, product) => acumulador + product.productId.price, 20)
+})
+
 
 
