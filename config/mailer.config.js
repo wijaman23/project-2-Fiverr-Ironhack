@@ -13,9 +13,9 @@ module.exports.sendBuyEmail = (user) => {
     transporter
         .sendMail({
           from: 'FiverIronhack<mallorcaymadridinironhack@gmail.com>',
-          to: user,
+          to: user.userId.email,
           subject: 'Realizada compra FivverIronhack',
-          text: `Hola Javi `,
+          text: `Enhorabuena ${user.userId.name}, ha finalizado su compra`,
         }, console.log(user, "config"))
         .then(() => {
             console.log('Email enviado')
