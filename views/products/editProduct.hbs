@@ -26,9 +26,15 @@
                 <input type="number" class="form-control {{#if errors.price }}is-invalid{{/if}}" name="price" value="{{product.price}}" style="background-color:transparent">
                 {{#if errors.price}}<div class="invalid-feedback">{{ errors.price }}</div>{{/if}}
             </div>
-            <div class="mb-3"> {{!queda arreglar error de renderizacion de categorias cuando se filtran errores}}
+            <div class="mb-3">
                 <label for="category" class="form-label">Categoria</label>
-                <input type="text" class="form-control {{#if errors.category }}is-invalid{{/if}}" name="category" value="{{product.category}}" readonly="readonly" style="background-color:transparent">
+                <select class="form-control {{#if errors.category }}is-invalid{{/if}}" name="category" style="background-color:transparent">
+                    {{#each categoryProduct as |category|}}
+                        <option value="{{category}}">
+                            {{category}}
+                        </option>   
+                    {{/each}}
+                </select>
                 {{#if errors.category}}<div class="invalid-feedback">{{ errors.category }}</div>{{/if}}
             </div>
             <button type="submit" class="btn btn-primary mb-2">Editar servicio</button>

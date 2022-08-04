@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const { Product, User } = require("../models")
+const { Product, User, Cart } = require("../models")
 const categoryProduct = require("../data/category.json")
 
 module.exports.index = (req, res, next) => {
@@ -130,10 +130,26 @@ module.exports.doEdit = (req, res, next) => {
           user: data,
         })
       } else {
-        next(error);
+        next(error)
       }
     })
 }
+module.exports.record = (req, res, next) => {
+  const id = req.params.id
+  
+  Cart.find()
+    .populate('userId')
+    .populate({
+      path: 'products',
+      populate: {
+          path: 'productId'
+      }
+    })
+    .then(carts => res.render('auth/record', {carts}))
+    .catch((error) => next(error))
+}
+
+
 
 
 

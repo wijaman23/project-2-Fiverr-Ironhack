@@ -12,6 +12,7 @@ router.get('/profile/:id', secure.isloged, user.profile)
 router.get('/logout', secure.isloged, user.logout)
 router.get('/profile/:id/edit', secure.isloged, user.edit)
 router.post('/profile/:id/edit', secure.isloged, user.doEdit)
+router.get('/record/:id', secure.isloged, user.record)
 
 router.get('/newProduct', secure.isloged, product.newProduct)
 router.post('/newProduct', secure.isloged, product.createProduct)
@@ -24,5 +25,6 @@ router.get('/cart', secure.isloged, cart.cart)
 router.post('/cart', secure.isloged, cart.addCart)
 router.get('/cart/buy', secure.isloged, cart.buy)
 router.post('/cart/buy', secure.isloged, cart.doBuy)
+
 
 module.exports = router

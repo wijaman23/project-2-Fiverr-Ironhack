@@ -1,0 +1,18 @@
+{{#each carts as |cart|}}
+    {{#recordFilter cart.userId.id  cart.status currentUser.id}}
+        Carritos: {{cart.userId.name}}
+        Status: {{cart.status}}
+         Product: {{#each cart.products as |product|}}
+            {{product.productId.title}},
+        {{/each}}
+    <br>
+    {{else}}
+    <p>---------</p>
+
+        nombre no{{cart.userId.name}} 
+        Status pending: {{cart.status}}
+    
+    {{/recordFilter}}
+{{/each}}
+
+{{currentUser.id}}
