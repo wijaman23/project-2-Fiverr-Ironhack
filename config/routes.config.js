@@ -25,6 +25,6 @@ router.get('/cart', secure.isloged, cart.cart)
 router.post('/cart', secure.isloged, cart.addCart)
 router.get('/cart/buy', secure.isloged, cart.buy)
 router.post('/cart/buy', secure.isloged, cart.doBuy)
-
+router.get('/cart/finished', secure.isloged, cart.finished)
 
 module.exports = router

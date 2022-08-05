@@ -1,6 +1,6 @@
 <div class="container-product-form">
     <h1 class="product-form-title">Editar usuario</h1>
-    <div class="product-form">
+    <div class="product-form mb-5">
         <form action="/profile/{{user.id}}/edit" method="post">
             <div class="mb-3">
                 <label for="title" class="form-label">Nombre</label>
@@ -12,7 +12,7 @@
                 <input type="email" class="form-control {{#if errors.email }}is-invalid{{/if}}" name="email" value="{{user.email}}" style="background-color:transparent">
                 {{#if errors.email}}<div class="invalid-feedback">{{ errors.email }}</div>{{/if}}
             </div>
-            <div class="mb-3">
+            <div class="mb-5">
                 <label for="img" class="form-label">Imagen</label>
                 <div class="d-flex">
                     <div>
@@ -22,8 +22,8 @@
                     {{#if errors.img}}<div class="invalid-feedback">{{ errors.img }}</div>{{/if}}
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Editar Usuario</button>
+            <button type="submit" class="btn btn-primary mb-4">Editar Usuario</button>
         </form>
-        <a href="/profile/{{currentUser.id}}"><button class="btn btn-outline-success mt-2">Cancelar</button></a>
+        <a href="/profile/{{currentUser.id}}"><button class="btn btn-outline-success mt-2 mb-5">Cancelar</button></a>
     </div>
 </div>

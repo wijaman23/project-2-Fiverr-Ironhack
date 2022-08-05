@@ -31,13 +31,18 @@ hbs.registerHelper('isSelected', function (product, category, options) {
     }
 })
 
-hbs.registerHelper('recordFilter', function (user, status, userName, options) {
-    if (user === userName && status === 'completed') {
+
+//Pendiente, nos falla el currentUser
+hbs.registerHelper('recordFilter', function (user, status, currentUser, options) {
+    if (user === currentUser && status === 'completed') {
        return options.fn(this)
     } else {
         return options.inverse(this)
     }
 })
+
+
+
 
 
 

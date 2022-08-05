@@ -66,7 +66,11 @@ module.exports.doBuy = (req, res, next) => {
         .then((user) => {
             swal("Enhorabuena!", "Ha realizado la compra, para finalizar haga click!", "success")
             sendBuyEmail(user)
-            res.redirect('/')
+            res.redirect('finished')
         })
         .catch((error) => next(error))
+}
+
+module.exports.finished = (req, res, next) => {
+    res.render('carts/finished')
 }

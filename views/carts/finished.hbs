@@ -1,0 +1,50 @@
+
+<div class="container d-flex justify-content-center mt-5">
+    <div class="card shaodw-lg card-1">
+        <div class="card-body  d-flex pt-0 mt-5">
+            <div class="row no-gutters mx-auto justify-content-start flex-sm-row flex-column">
+                <div class="col-md-2 text-center"><img class="irc_mi img-fluid mr-0" src="https://png.monster/wp-content/uploads/2021/06/png.monster-9-370x370.png"  width="150" height="150"></div>
+                <div class="col-md-10">
+                    <div class="card border-0 mb-5">
+                        <div class="card-body">
+                            <h3 class="card-title "><b>Enhorabuena</b></h3>
+                            <p class="card-text "><p>Ha finalizado su compra correctamente, gracias por confirar en fiverr.HACK</p>
+                            <div class="d-flex">
+                                <div class="mx-1">
+                                    <h5>Se redirigira a la pagina principal en </h5>
+                                </div>
+                                <div class="mx-1">
+                                    <h5 id="numberTime"></h5>
+                                </div>
+                                <div>
+                                    <h5>segundos</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+        </div> 
+    </div>
+</div>
+
+<script>
+    let count = 5
+    let write = document.getElementById("numberTime")
+
+    window.setInterval(function(){
+        write.innerHTML = count;
+        count--
+        if (count < -1) {
+            clearInterval(count)
+        }
+    },1000)
+
+    setTimeout(function () {
+        window.location = "/";
+    }, 6000)
+
+</script>
+
+
+
