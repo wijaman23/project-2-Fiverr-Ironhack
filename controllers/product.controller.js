@@ -42,7 +42,7 @@ module.exports.deleteProduct = (req, res, next) => {
     const id = req.params.id
   
     Product.findByIdAndDelete(id)
-      .then(() => res.redirect("/"))
+      .then(() => res.redirect(`/profile/${req.user.id}`))
       .catch((error) => next(error))
 }
 module.exports.editProduct = (req, res, next) => {
@@ -66,7 +66,7 @@ module.exports.doEditProduct = (req, res, next) => {
   
     Product.findByIdAndUpdate(id, data, {runValidators: true})
       .then((product) => {
-        res.redirect(`/profile/${req.user.id}`);
+        res.redirect(`/profile/${req.user.id}`)
       })
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {

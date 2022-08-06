@@ -1,17 +1,52 @@
-{{#each carts as |cart|}}
-    {{#recordFilter cart.userId.id  cart.status currentUser.id}}
-        Carritos: {{cart.userId.name}} <br>
-        Status: {{cart.status}} <br>
-        Product: {{#each cart.products as |product|}}
-            {{product.productId.title}},
-        {{/each}}
-    <br>
-    {{else}}
-    <p>---------</p>
-
-    {{/recordFilter}}
-{{/each}}
-
-<br><br><br>
-
-
+<div class="container mt-5">
+    <div>
+        <div>
+            <a href="/profile"></a> › Mis pedidos
+        </div>
+        <div>
+            <h1>Mis pedidos</h1>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-11 col-xs-1">
+            {{#each carts as |cart|}}
+            {{#recordFilter cart.userId.id cart.status ../currentUser.id}}
+            <div class="card text-center mb-3">
+                <div class="card-header">
+                    <div>
+                        <div>
+                            <h4>PEDIDO REALIZADO</h4>
+                            <h4>10 de Diciembre 2019</h4>
+                        </div>
+                        <div>
+                            <h4>TOTAL: {{totalPriceRecord cart.products}}€</h4>
+                        </div>
+                        <div>
+                            <h4>PEDIDO Nº: {{cart.id}}</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    {{#each cart.products as |product|}}
+                    <div class="d-flex flex-row bd-highlight mb-3">
+                        <div class="p-2 bd-highlight">
+                            <img src="{{product.productId.img}}" style="width: 100px;" alt="img">
+                        </div>
+                        <div class="p-2 bd-highlight">
+                            {{product.productId.title}}
+                        </div>
+                        <div class="p-2 bd-highlight">
+                            {{product.productId.price}}€
+                        </div>
+                        <div class="p-2 bd-highlight ">
+                            <a href="#" class="btn btn-primary">Ver tu articulo</a>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+            {{/recordFilter}}
+            {{/each}}
+        </div>
+    </div>
+</div>

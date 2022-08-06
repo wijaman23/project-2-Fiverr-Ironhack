@@ -7,6 +7,11 @@ hbs.registerHelper('totalPrice', function (products) {
     return products?.reduce((acumulador, product) => acumulador + product.productId.price, 0)
 })
 
+hbs.registerHelper('totalPriceRecord', function (products) {
+    console.log(products)
+    return products?.reduce((acumulador, product) => acumulador + product.productId.price, 0)
+})
+
 hbs.registerHelper('count', function (products) {
     return products?.length
 })
@@ -24,15 +29,13 @@ hbs.registerHelper('totalPriceCost', function (products) {
 })
 
 hbs.registerHelper('isSelected', function (product, category, options) {
-    if (product.category === category) {
+    if (product.category[0] === category) {
         return options.fn(this)
     } else {
         return options.inverse(this)
     }
 })
 
-
-//Pendiente, nos falla el currentUser
 hbs.registerHelper('recordFilter', function (user, status, currentUser, options) {
     if (user === currentUser && status === 'completed') {
        return options.fn(this)

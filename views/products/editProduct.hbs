@@ -30,7 +30,7 @@
                 <label for="category" class="form-label">Categoria</label>
                 <select class="form-control {{#if errors.category }}is-invalid{{/if}}" name="category" style="background-color:transparent">
                     {{#each categoryProduct as |category|}}
-                        <option value="{{category}}">
+                        <option {{#isSelected ../product category}}selected{{/isSelected}} value="{{category}}">
                             {{category}}
                         </option>   
                     {{/each}}

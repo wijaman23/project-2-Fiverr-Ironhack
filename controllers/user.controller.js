@@ -135,14 +135,15 @@ module.exports.doEdit = (req, res, next) => {
     })
 }
 module.exports.record = (req, res, next) => {
-  const id = req.params.id
-  
-  Cart.find()
+   Cart.find()
     .populate('userId')
     .populate({
       path: 'products',
       populate: {
-          path: 'productId'
+        path: 'productId',
+        populate: {
+          path: 'maker'
+          }
       }
     })
     .then(carts => res.render('auth/record', {carts}))
