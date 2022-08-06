@@ -21,7 +21,16 @@ const cartSchema = new Schema ({
             enum: [
                 'pending', 'completed'
             ]
-        }
+        },
+        date: {
+            type: Date,
+        },
+})
+
+cartSchema.pre('save', function(next) {
+    const today = new Date();
+    this.date = today
+    next()
 })
 
 const Cart = mongoose.model('Cart', cartSchema)

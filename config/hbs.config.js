@@ -8,7 +8,6 @@ hbs.registerHelper('totalPrice', function (products) {
 })
 
 hbs.registerHelper('totalPriceRecord', function (products) {
-    console.log(products)
     return products?.reduce((acumulador, product) => acumulador + product.productId.price, 0)
 })
 
@@ -43,6 +42,11 @@ hbs.registerHelper('recordFilter', function (user, status, currentUser, options)
         return options.inverse(this)
     }
 })
+
+hbs.registerHelper('createHour', function (hour) {
+    return output = String(hour.getDate()).padStart(2, '0') + '/' + String(hour.getMonth() + 1).padStart(2, '0') + '/' + hour.getFullYear();
+})
+
 
 
 

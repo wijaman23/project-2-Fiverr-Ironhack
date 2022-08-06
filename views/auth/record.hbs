@@ -1,9 +1,9 @@
 <div class="container mt-5">
     <div>
-        <div>
-            <a href="/profile"></a> › Mis pedidos
+        <div class="mb-3">
+            <a href="/profile/{{currentUser.id}}" style="text-decoration: none;">Mi cuenta</a> › Mis pedidos
         </div>
-        <div>
+        <div class="mb-5">
             <h1>Mis pedidos</h1>
         </div>
     </div>
@@ -11,35 +11,38 @@
         <div class="col-md-11 col-xs-1">
             {{#each carts as |cart|}}
             {{#recordFilter cart.userId.id cart.status ../currentUser.id}}
-            <div class="card text-center mb-3">
+            <div class="card mb-5">
                 <div class="card-header">
                     <div>
                         <div>
-                            <h4>PEDIDO REALIZADO</h4>
-                            <h4>10 de Diciembre 2019</h4>
+                            <h6>PEDIDO REALIZADO EL: {{createHour cart.date}}</h6>
                         </div>
                         <div>
-                            <h4>TOTAL: {{totalPriceRecord cart.products}}€</h4>
+                            <h6>TOTAL: {{totalPriceRecord cart.products}}€</h6>
                         </div>
                         <div>
-                            <h4>PEDIDO Nº: {{cart.id}}</h4>
+                            <h6>Nº: {{cart.id}}</h6>
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
                     {{#each cart.products as |product|}}
-                    <div class="d-flex flex-row bd-highlight mb-3">
-                        <div class="p-2 bd-highlight">
-                            <img src="{{product.productId.img}}" style="width: 100px;" alt="img">
+                    <div class="d-flex justify-content-between mb-3">
+                        <div class="d-flex">
+                            <div class="mx-2 bd-highlight">
+                                <img src="{{product.productId.img}}" style="width: 100px; height: 70px" alt="img">
+                            </div>
+                            <div class="mx-3 d-flex align-self-center">
+                                <div class="align-self-center bd-highlight">
+                                    {{product.productId.title}}
+                                </div>
+                                <div class="p-3 align-self-center">
+                                    {{product.productId.price}}€
+                                </div>
+                            </div>
                         </div>
-                        <div class="p-2 bd-highlight">
-                            {{product.productId.title}}
-                        </div>
-                        <div class="p-2 bd-highlight">
-                            {{product.productId.price}}€
-                        </div>
-                        <div class="p-2 bd-highlight ">
-                            <a href="#" class="btn btn-primary">Ver tu articulo</a>
+                        <div class="mx-2 align-self-center">
+                           <a href="/details/{{product.productId.id}}" class="btn btn-secondary" role="button">Ver tu articulo</a>
                         </div>
                     </div>
                     {{/each}}
