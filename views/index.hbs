@@ -19,7 +19,7 @@
         </div>
         <form class="d-flex" method="get">
             <div class="index-btn ms-4">
-                <input class="search-input" type="text" name="title" value="{{ query.title }}" placeholder="Introduce el titulo">
+                <input class="search-input bg-light" type="text" name="title" value="{{ query.title }}" placeholder="Introduce el titulo">
             </div>
             <div class="index-btn">
                 <button class="btn btn-outline-success" type="submit">Buscar</button>  
@@ -34,7 +34,7 @@
             <div class="p-4 col-md-6 align-self-center text-color">
                 <p>Siente como en casa, empecemos aprender</p>
                 <h2>Descubre nuestros productos <b>{{currentUser.name}}</b></h2><br>
-                <p>Ofrecemos descuentos especiales para personas con espiritu de emprendedor, ¿eres una de ellas?</p>
+                <p>Ofrecemos descuentos especiales para personas con espiritu de emprendedor, ¿eres una de ellas?</p>    
             </div>
             <div class="p-0 col-md-6">
                  <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
@@ -68,6 +68,7 @@
     <div class="container-index-list-product">
         <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 row-cols-xl-6 g-4">
             {{#each products as |product|}}
+             {{#indexProfile product.maker.id ../currentUser.id}}
             <div class="col">
                 <div class="card">
                     <img src="{{product.img}}" class="container-img-product" alt="img">
@@ -95,6 +96,7 @@
                     </div>
                 </div>
             </div>
+             {{/indexProfile}}
             {{/each}} 
         </div>
     </div>

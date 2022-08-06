@@ -1,28 +1,30 @@
 <nav class="navbar navbar-expand navbar-expand-sm navbar-expand-md navbar-expand-xl bg-light">
   <div class="container-fluid">
     <div class="collapse navbar-collapse">
-      <ul class="navbar-nav me-auto">
-        <li>
-          <a class="navbar-brand mb-0 h1 ms-2" href="/"><img class="d-inline-block align-top" src="https://i.ibb.co/pW3KXr0/fiverrhack.png" width="200" height="35" alt="logo"></a>
-        </li>
-      </ul>
+      <div class="navbar-nav me-auto">
+          <a class="navbar-brand ms-2" href="/">
+            <img class="d-inline-block align-top" src="https://i.ibb.co/pW3KXr0/fiverrhack.png" width="180" height="33" alt="logo">
+          </a>
+      </div>
         {{#if currentUser}}
           <div class="nab-bar-login">
-             <a role="button" href="/cart"><span class="input-group-text"><i class="fa fa-cart-arrow-down fa-fw"></i></span></a>
+            <a role="button" href="/cart">
+              <span class="input-group-text" style="background-color: transparent; with: 60px; height: 40px;"><i class="fa fa-cart-arrow-down fa-fw"></i></span>
+            </a>
           </div>
           <div class="nab-bar-login">
             <a class="btn btn-secondary" role="button" href="/logout">Salir</a>
           </div>
-          <div class="nab-bar-login">
+          <div class="nab-bar-login me-3">
             <a href="/profile/{{currentUser.id}}">
-            <img class="navbar-user-img rounded-circle" style="width: 50px; height: 50px;" src="{{currentUser.img}}" alt="user"></a>
+            <img class="navbar-user-img rounded-circle" style="width: 60px; height: 50px;" src="{{currentUser.img}}" alt="user"></a>
           </div>
         {{else}}
           <div class="nab-bar-login">
-            <a href="/login"><button class="btn btn-outline-success">Iniciar sesion</button></a>
+            <a href="/login"><button class="btn btn-outline-success btn-sm">Iniciar</button></a>
           </div>
           <div class="nab-bar-login">
-            <a href="/register"><button class="btn btn-outline-success">Unete</button></a>
+            <a href="/register"><button class="btn btn-outline-success btn-sm">Unete</button></a>
           </div>
         {{/if}}
     </div>
