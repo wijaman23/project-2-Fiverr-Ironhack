@@ -40,5 +40,5 @@ app.use((error, req, res, next) => {
 });
 
 //LLamada a puerto de escucha 3000
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`App listening port ${port}, verified`))
