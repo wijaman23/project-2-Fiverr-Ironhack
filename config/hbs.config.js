@@ -55,6 +55,15 @@ hbs.registerHelper('indexProfile', function (user, currentUser, options) {
     }
 })
 
+hbs.registerHelper('butonDisable', function (products) {
+    if (products?.length < 1) {
+        return "disabled"
+    } else {
+        return ""
+    }
+
+})
+
 
 
 

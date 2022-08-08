@@ -15,7 +15,7 @@ module.exports.sendBuyEmail = (user) => {
           from: 'FiverIronhack<mallorcaymadridinironhack@gmail.com>',
           to: user.userId.email,
           subject: 'Realizada compra FivverIronhack',
-          text: `Enhorabuena ${user.userId.name}, ha finalizado su compra`,
+          text: `Enhorabuena ${user.userId.name}, ha finalizado su compra con exito`,
         }, console.log(user, "config"))
         .then(() => {
             console.log('Email enviado')

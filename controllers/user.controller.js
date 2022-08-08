@@ -29,7 +29,7 @@ module.exports.doLogin = (req, res, next) => {
   function renderInvalidLogin() {
       res.status(400).render('auth/login', {
         user: req.body,
-        errors: { password: 'Email o contraseña incorrecto' }
+        errors: { password: 'Email o contraseña no coinciden' }
       });
   }
   

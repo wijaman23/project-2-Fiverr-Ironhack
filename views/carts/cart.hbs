@@ -1,58 +1,63 @@
 {{#if cart}}
 <div class="cart_section">
-     <div class="container-fluid">
-         <div class="row">
-             <div class="col-lg-10 offset-lg-1">
-                 <div class="cart_container">
-                     <div class="cart_title">Subtotal: <small> - {{count cart.products}} producto{{prural cart.products}} </div></small></div>
-                     <div class="cart_items">
-                         <ul class="cart_list">
-                            {{#each cart.products as |product|}}
-                             <li class="cart_item clearfix">
-                                 <div class="cart_item_image"><img src="{{product.productId.img}}" alt=""></div>
-                                 <div class="cart_item_info d-flex flex-md-row flex-column justify-content-between">
-                                     <div class="cart_item_name cart_info_col">
-                                         <div class="cart_item_title">Titulo</div>
-                                         <div class="cart_item_text" style="width: 500px;">{{product.productId.title}}</div>
-                                     </div>
-                                     <div class="cart_item_quantity cart_info_col">
-                                         <div class="cart_item_title">Cantidad</div>
-                                         <div class="cart_item_text">{{product.quanty}}</div>
-                                     </div>
-                                     <div class="cart_item_price cart_info_col">
-                                         <div class="cart_item_title">Precio</div>
-                                         <div class="cart_item_text">{{product.productId.price}}€</div>
-                                     </div>
-                                     <div class="cart_item_total cart_info_col">
-                                         <div class="cart_item_title"></div>
-                                         <div class="cart_item_text">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="cart_container">
+                    <div class="cart_title">Subtotal: <small> - {{count cart.products}} producto{{prural cart.products}}
+                    </div></small>
+                </div>
+                <div class="cart_items">
+                    <ul class="cart_list">
+                        {{#each cart.products as |product|}}
+                        <li class="container my-4">
+                            <div class="row">
+                                <div class="col">
+                                    <img class="rounded" width="220" height="150" src="{{product.productId.img}}">
+                                </div>
+                                <div class="col">
+                                    <div class="cart_item_title">Titulo</div>
+                                    <div class="">{{product.productId.title}}</div>
+                                </div>
+                                <div class="col d-flex">
+                                    <div class="col mx-2">
+                                        <div class="cart_item_title">Cantidad</div>
+                                        <div class="">{{product.quanty}}</div>
+                                    </div>
+                                    <div class="col mx-2">
+                                        <div class="cart_item_title">Precio</div>
+                                        <div class="">{{product.productId.price}}€</div>
+                                    </div>
+                                    <div class="col mx-2 mt-2">
+                                        <div class="cart_item_title">
                                             <form action="/cart" method="post">
                                                 <input type="hidden" name="productId" value="{{product.id}}">
-                                                <input type="hidden" name="quanty" value= 0 >
+                                                <input type="hidden" name="quanty" value=0>
                                                 <button type="submit" class="btn btn-outline-primary"><i class="fa fa-trash fa-fw"></i></button>
                                             </form>
                                         </div>
-                                     </div>
-                                 </div>
-                             </li>
-                             {{/each}}
-                         </ul>
-                     </div>
-                     <div class="order_total">
-                         <div class="order_total_content text-md-right">
-                             <div class="order_total_title">Total</div>
-                             <div class="order_total_amount">{{totalPrice cart.products}}€</div>
-                         </div>
-                     </div>
-                     <div class="cart_buttons"> 
-                        <a class="btn btn-primary" role="button" href="/">Continua comprando</a>
-                        <a class="btn btn-danger" role="button" href="/cart/buy">Finaliza compra</a>
-                    </div>
-                 </div>
-             </div>
-         </div>
-     </div>
- </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <hr>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-10 offset-lg-1">
+                <div class="">
+                    <div class="order_total_title"><h3>TOTAL</h3></div>
+                    <div class="order_total_amount"><h3>{{totalPrice cart.products}}€</h3></div>
+                </div>
+                <div class="">
+                    <a class="btn btn-outline-primary" role="button" href="/">Continua comprando</a>  
+                    <a class="btn btn-outline-danger {{butonDisable cart.products}}" role="button" href="/cart/buy">Finaliza compra</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 {{else}}
 
@@ -60,22 +65,17 @@
     <div class="row">
         <div class="col-md-12 mb-5">
             <div class="card mb-5">
-					<div class="card-body cart mb-3">
-								<div class="col-sm-12 empty-cart-cls text-center mb-3">
-									<img src="https://i.imgur.com/dCdflKN.png" width="130" height="130" class="img-fluid mb-4 mr-3">
-									<h3><strong>Su cesta esta vacia</strong></h3>
-									<h4>Añade algo para hacerme feliz :)</h4>
-					    <a href="/" class="btn btn-primary cart-btn-transform m-5" data-abc="true">Continua comprando</a>			
-				</div>
-		    </div>
-	    </div>		
-    </div>				 
+                <div class="card-body cart mb-3">
+                    <div class="col-sm-12 empty-cart-cls text-center mb-3">
+                        <img src="https://i.imgur.com/dCdflKN.png" width="130" height="130" class="img-fluid mb-4 mr-3">
+                        <h3><strong>Su cesta esta vacia</strong></h3>
+                        <h4>Añade algo para hacerme feliz :)</h4>
+                        <a href="/" class="btn btn-primary cart-btn-transform m-5" data-abc="true">Continua
+                            comprando</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {{/if}}
-
-
-
-
-
-
-
