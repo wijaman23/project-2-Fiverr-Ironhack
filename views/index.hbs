@@ -7,9 +7,9 @@
             <ul class="navbar-nav">      
                 <form method="get">
                     {{#each categoryProduct as |category|}}
-                        <li class="nav-item btn-group">    
-                           <button class="btn btn-sm btn-outline-secondary" type="submit" name="category" value="{{category}}">{{category}}</button>
-                        </li>
+                    <li class="nav-item btn-group">    
+                        <button class="btn btn-sm btn-outline-secondary" type="submit" name="category" value="{{category}}">{{category}}</button>
+                    </li>
                     {{/each}}
                     <li class="nav-item btn-group">
                         <button class="btn btn-sm btn-outline-secondary" type="submit" name="category"><a class="index-btn-a" href="/">Todos</a></button>

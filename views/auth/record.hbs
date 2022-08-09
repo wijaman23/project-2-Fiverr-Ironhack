@@ -9,10 +9,13 @@
             </div>
             <div>
                 <div>
-                    <h5>Fitrar por fecha</h5> 
+                    <h5>Fitrar por fecha</h5>
                 </div>
                 <div>
-                    </a><input type="date" id="start" name="trip-start" value="" min="2022-01-01" max="2022-12-31">
+                    <form method="get" action="/record/{{currentUser.id}}" class="d-flex">
+                        <input type="date" name="date" value="" min="2022-01-01" max="2022-12-31" class="form-control" style="width: 200px;">
+                        <button type="submit" class="btn btn-outline-success mx-2" ><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -25,7 +28,7 @@
                 <div class="card-header">
                     <div>
                         <div>
-                            <h6>PEDIDO REALIZADO EL: {{createHour cart.date}}</h6>
+                            <h6>PEDIDO REALIZADO EL: {{cart.date}}</h6>
                         </div>
                         <div>
                             <h6>TOTAL: {{totalPriceRecord cart.products}}€</h6>
@@ -52,7 +55,8 @@
                             </div>
                         </div>
                         <div class="mx-2 align-self-center">
-                           <a href="/details/{{product.productId.id}}" class="btn btn-secondary" role="button">Ver tu articulo</a>
+                            <a href="/details/{{product.productId.id}}" class="btn btn-secondary" role="button">Ver tu
+                                articulo</a>
                         </div>
                     </div>
                     {{/each}}

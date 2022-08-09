@@ -64,7 +64,6 @@ module.exports.doBuy = (req, res, next) => {
     Cart.findOneAndUpdate({userId: req.user.id, status: 'pending'}, {status: 'completed'})
         .populate('userId')
         .then((user) => {
-            swal("Enhorabuena!", "Ha realizado la compra, para finalizar haga click!", "success")
             sendBuyEmail(user)
             res.redirect('finished')
         })

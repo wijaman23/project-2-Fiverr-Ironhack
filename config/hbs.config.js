@@ -43,10 +43,6 @@ hbs.registerHelper('recordFilter', function (user, status, currentUser, options)
     }
 })
 
-hbs.registerHelper('createHour', function (hour) {
-    return output = String(hour.getDate()).padStart(2, '0') + '/' + String(hour.getMonth() + 1).padStart(2, '0') + '/' + hour.getFullYear();
-})
-
 hbs.registerHelper('indexProfile', function (user, currentUser, options) {
     if (user != currentUser) {
        return options.fn(this)

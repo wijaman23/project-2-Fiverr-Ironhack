@@ -135,7 +135,16 @@ module.exports.doEdit = (req, res, next) => {
     })
 }
 module.exports.record = (req, res, next) => {
-   Cart.find()
+
+  const date = req.query.date
+  
+  const criteria = {}
+
+  if (date) {
+    criteria.date = {$in: date}
+  }
+  
+  Cart.find(criteria)
     .populate('userId')
     .populate({
       path: 'products',
@@ -146,7 +155,7 @@ module.exports.record = (req, res, next) => {
           }
       }
     })
-    .then(carts => res.render('auth/record', {carts}))
+    .then(carts => res.render('auth/record', {carts, date}))
     .catch((error) => next(error))
 }
 

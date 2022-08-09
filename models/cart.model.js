@@ -23,15 +23,17 @@ const cartSchema = new Schema ({
             ]
         },
         date: {
-            type: Date,
+            type: String,
         },
 })
 
 cartSchema.pre('save', function(next) {
-    const today = new Date();
-    this.date = today
+    const today = new Date()
+    this.date = today.getFullYear() + '-' + String(today.getMonth() + 1).padStart(2, '0') + '-' + String(today.getDate()).padStart(2, '0') 
     next()
 })
+
+
 
 const Cart = mongoose.model('Cart', cartSchema)
 
