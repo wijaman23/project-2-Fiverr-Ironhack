@@ -23,11 +23,6 @@
                 <input type="password" name="password" class="form-control {{#if errors.password }}is-invalid{{/if}}" placeholder="Escribir contraseña">
                 {{#if errors.password}}<div class="invalid-feedback">{{ errors.password }}</div>{{/if}}
             </div>
-            <div class="input-group mb-3">
-                <span class="input-group-text"><i class="fa fa-lock fa-fw"></i></span>
-                <input type="password" name="password" class="form-control {{#if errors.password }}is-invalid{{/if}}" placeholder="Vuelva a insertar contraseña">
-                {{#if errors.password}}<div class="invalid-feedback">{{ errors.password }}</div>{{/if}}
-            </div>
             <div class="d-grid">
                 <button class="btn btn-success" type="submit">Registrar</button>
             </div>

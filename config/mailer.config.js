@@ -19,7 +19,6 @@ module.exports.sendBuyEmail = (user) => {
           <!doctype html>
           <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
             xmlns:o="urn:schemas-microsoft-com:office:office">
-
           <head>
             <!-- NAME: BOUTIQUE -->
             <!--[if gte mso 15]>
@@ -33,37 +32,26 @@ module.exports.sendBuyEmail = (user) => {
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1">
-            <title>*|MC:SUBJECT|*</title>
-
+            <title>Fiverr Ironhack</title>
             <style type="text/css">
               p {
                 margin: 10px 0;
                 padding: 0;
               }
-
               table {
                 border-collapse: collapse;
               }
-
-              h1,
-              h2,
-              h3,
-              h4,
-              h5,
-              h6 {
+              h1, h2, h3, h4, h5, h6 {
                 display: block;
                 margin: 0;
                 padding: 0;
               }
-
-              img,
-              a img {
+              img, a img {
                 border: 0;
                 height: auto;
                 outline: none;
                 text-decoration: none;
               }
-
               body,
               #bodyTable,
               #bodyCell {
@@ -72,15 +60,12 @@ module.exports.sendBuyEmail = (user) => {
                 padding: 0;
                 width: 100%;
               }
-
               .mcnPreviewText {
                 display: none !important;
               }
-
               #outlook a {
                 padding: 0;
               }
-
               img {
                 -ms-interpolation-mode: bicubic;
               }
@@ -97,33 +82,19 @@ module.exports.sendBuyEmail = (user) => {
               .ExternalClass {
                 width: 100%;
               }
-
-              p,
-              a,
-              li,
-              td,
-              blockquote {
+              p, a, li, td, blockquote {
                 mso-line-height-rule: exactly;
               }
-
               a[href^=tel],
               a[href^=sms] {
                 color: inherit;
                 cursor: default;
                 text-decoration: none;
               }
-
-              p,
-              a,
-              li,
-              td,
-              body,
-              table,
-              blockquote {
+              p, a, li, td, body, table, blockquote {
                 -ms-text-size-adjust: 100%;
                 -webkit-text-size-adjust: 100%;
               }
-
               .ExternalClass,
               .ExternalClass p,
               .ExternalClass td,
@@ -132,7 +103,6 @@ module.exports.sendBuyEmail = (user) => {
               .ExternalClass font {
                 line-height: 100%;
               }
-
               a[x-apple-data-detectors] {
                 color: inherit !important;
                 text-decoration: none !important;
@@ -141,20 +111,16 @@ module.exports.sendBuyEmail = (user) => {
                 font-weight: inherit !important;
                 line-height: inherit !important;
               }
-
               a.mcnButton {
                 display: block;
               }
-
               .mcnImage,
               .mcnRetinaImage {
                 vertical-align: bottom;
               }
-
               .mcnTextContent {
                 word-break: break-word;
               }
-
               .mcnTextContent img {
                 height: auto !important;
               }
@@ -526,21 +492,18 @@ module.exports.sendBuyEmail = (user) => {
                   max-width: 100% !important;
                   width: 100% !important;
                 }
-
               }
 
               @media only screen and (max-width: 480px) {
                 .mcnBoxedTextContentContainer {
                   min-width: 100% !important;
                 }
-
               }
 
               @media only screen and (max-width: 480px) {
                 .mcnImageGroupContent {
                   padding: 9px !important;
                 }
-
               }
 
               @media only screen and (max-width: 480px) {
@@ -549,7 +512,6 @@ module.exports.sendBuyEmail = (user) => {
                 .mcnCaptionRightContentOuter .mcnTextContent {
                   padding-top: 9px !important;
                 }
-
               }
 
               @media only screen and (max-width: 480px) {
@@ -574,7 +536,6 @@ module.exports.sendBuyEmail = (user) => {
                   padding-top: 0 !important;
                   padding-bottom: 0 !important;
                 }
-
               }
 
               @media only screen and (max-width: 480px) {
@@ -582,28 +543,23 @@ module.exports.sendBuyEmail = (user) => {
                   padding-top: 9px !important;
                   padding-bottom: 9px !important;
                 }
-
               }
 
               @media only screen and (max-width: 480px) {
-
                 .mcnTextContent,
                 .mcnBoxedTextContentColumn {
                   padding-right: 18px !important;
                   padding-left: 18px !important;
                 }
-
               }
 
               @media only screen and (max-width: 480px) {
-
                 .mcnImageCardLeftImageContent,
                 .mcnImageCardRightImageContent {
                   padding-right: 18px !important;
                   padding-bottom: 0 !important;
                   padding-left: 18px !important;
                 }
-
               }
 
               @media only screen and (max-width: 480px) {
@@ -611,11 +567,9 @@ module.exports.sendBuyEmail = (user) => {
                   display: none !important;
                   width: 100% !important;
                 }
-
               }
 
               @media only screen and (max-width: 480px) {
-
                 /*
             @tab Mobile Styles
             @section heading 1
@@ -627,7 +581,6 @@ module.exports.sendBuyEmail = (user) => {
                   /*@editable*/
                   line-height: 125% !important;
                 }
-
               }
 
               @media only screen and (max-width: 480px) {
@@ -643,11 +596,9 @@ module.exports.sendBuyEmail = (user) => {
                   /*@editable*/
                   line-height: 125% !important;
                 }
-
               }
 
               @media only screen and (max-width: 480px) {
-
                 /*
             @tab Mobile Styles
             @section heading 3
@@ -659,7 +610,6 @@ module.exports.sendBuyEmail = (user) => {
                   /*@editable*/
                   line-height: 125% !important;
                 }
-
               }
 
               @media only screen and (max-width: 480px) {
@@ -670,7 +620,6 @@ module.exports.sendBuyEmail = (user) => {
                   /*@editable*/
                   line-height: 125% !important;
                 }
-
               }
 
               @media only screen and (max-width: 480px) {
@@ -682,7 +631,6 @@ module.exports.sendBuyEmail = (user) => {
                   /*@editable*/
                   line-height: 125% !important;
                 }
-
               }
 
               @media only screen and (max-width: 480px) {
@@ -691,7 +639,6 @@ module.exports.sendBuyEmail = (user) => {
                   /*@editable*/
                   display: block !important;
                 }
-
               }
 
               @media only screen and (max-width: 480px) {
@@ -703,7 +650,6 @@ module.exports.sendBuyEmail = (user) => {
                   /*@editable*/
                   line-height: 115% !important;
                 }
-
               }
 
               @media only screen and (max-width: 480px) {
@@ -715,7 +661,6 @@ module.exports.sendBuyEmail = (user) => {
                   /*@editable*/
                   line-height: 125% !important;
                 }
-
               }
 
               @media only screen and (max-width: 480px) {
@@ -727,7 +672,6 @@ module.exports.sendBuyEmail = (user) => {
                   /*@editable*/
                   line-height: 125% !important;
                 }
-
               }
 
               @media only screen and (max-width: 480px) {
@@ -739,7 +683,6 @@ module.exports.sendBuyEmail = (user) => {
                   /*@editable*/
                   line-height: 125% !important;
                 }
-
               }
 
               @media only screen and (max-width: 480px) {
@@ -751,7 +694,6 @@ module.exports.sendBuyEmail = (user) => {
                   /*@editable*/
                   line-height: 125% !important;
                 }
-
               }
 
               @media only screen and (max-width: 480px) {
@@ -763,15 +705,14 @@ module.exports.sendBuyEmail = (user) => {
                   /*@editable*/
                   line-height: 115% !important;
                 }
-
               }
             </style>
           </head>
 
           <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
-            <!--*|IF:MC_PREVIEW_TEXT|*-->
+            <!--*|IF:FiverrIronhacker|*-->
             <!--[if !gte mso 9]><!----><span class="mcnPreviewText"
-              style="display:none; font-size:0px; line-height:0px; max-height:0px; max-width:0px; opacity:0; overflow:hidden; visibility:hidden; mso-hide:all;">*|MC_PREVIEW_TEXT|*</span>
+              style="display:none; font-size:0px; line-height:0px; max-height:0px; max-width:0px; opacity:0; overflow:hidden; visibility:hidden; mso-hide:all;"></span>
             <!--<![endif]-->
             <!--*|END:IF|*-->
             <center>
@@ -825,7 +766,6 @@ module.exports.sendBuyEmail = (user) => {
                                                     <td class="mcnImageContent"
                                                       valign="top"
                                                       style="padding-right: 9px; padding-left: 9px; padding-top: 0; padding-bottom: 0; text-align:center;">
-
                                                       <a href="https://i.ibb.co/pW3KXr0/fiverrhack.png"
                                                         title="" class=""
                                                         target="_blank">
@@ -835,7 +775,6 @@ module.exports.sendBuyEmail = (user) => {
                                                           style="max-width:500px; padding-bottom: 0; display: inline !important; vertical-align: bottom;"
                                                           class="mcnImage">
                                                       </a>
-
                                                     </td>
                                                   </tr>
                                                 </tbody>
@@ -937,11 +876,11 @@ module.exports.sendBuyEmail = (user) => {
                                                       class="mcnButtonContent"
                                                       style="font-family: Arial; font-size: 18px; padding: 14px;">
                                                       <a class="mcnButton "
-                                                        title="SHOP WORN"
+                                                        title="TIENDA ONLINE"
                                                         href="http://"
                                                         target="_self"
-                                                        style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">SHOP
-                                                        WORN</a>
+                                                        style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">
+                                                        TIENDA ONLINE</a>
                                                     </td>
                                                   </tr>
                                                 </tbody>
@@ -1158,7 +1097,7 @@ module.exports.sendBuyEmail = (user) => {
 
           </html>
           `,
-    }, console.log(user, "config"))
+    })
     .then(() => {
       console.log('Email enviado')
     })

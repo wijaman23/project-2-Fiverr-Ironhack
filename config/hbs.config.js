@@ -8,7 +8,7 @@ hbs.registerHelper('totalPrice', function (products) {
 })
 
 hbs.registerHelper('totalPriceRecord', function (products) {
-    return products?.reduce((acumulador, product) => acumulador + product.productId.price, 0)
+    return products?.reduce((acumulador, product) => acumulador + product.productId.price, 20)
 })
 
 hbs.registerHelper('count', function (products) {
