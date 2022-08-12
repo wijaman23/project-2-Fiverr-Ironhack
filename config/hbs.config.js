@@ -57,12 +57,4 @@ hbs.registerHelper('butonDisable', function (products) {
     } else {
         return ""
     }
-
 })
-
-
-
-
-
-
-

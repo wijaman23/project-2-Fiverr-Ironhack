@@ -3,13 +3,21 @@
     <div class="product-form mb-5">
         <form action="/profile/{{user.id}}/edit" method="post">
             <div class="mb-3">
-                <label for="title" class="form-label">Nombre</label>
-                <input type="text" class="form-control {{#if errors.name }}is-invalid{{/if}}" name="name" value="{{user.name}}" style="background-color:transparent">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control {{#if errors.name }}is-invalid{{/if}}" name="name"
+                    value="{{user.name}}" style="background-color:transparent">
                 {{#if errors.name}}<div class="invalid-feedback">{{ errors.name }}</div>{{/if}}
             </div>
             <div class="mb-3">
+                <label for="lastName" class="form-label">Apellidos</label>
+                <input type="text" class="form-control {{#if errors.lastName }}is-invalid{{/if}}" name="lastName"
+                    value="{{user.lastName}}" style="background-color:transparent">
+                {{#if errors.lastName}}<div class="invalid-feedback">{{ errors.lastName }}</div>{{/if}}
+            </div>
+            <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control {{#if errors.email }}is-invalid{{/if}}" name="email" value="{{user.email}}" style="background-color:transparent">
+                <input type="email" class="form-control {{#if errors.email }}is-invalid{{/if}}" name="email"
+                    value="{{user.email}}" style="background-color:transparent">
                 {{#if errors.email}}<div class="invalid-feedback">{{ errors.email }}</div>{{/if}}
             </div>
             <div class="mb-5">
@@ -18,7 +26,8 @@
                     <div>
                         <img class="img-edit" src="{{user.img}}" alt="">
                     </div>
-                    <input type="text" class="form-control {{#if errors.img }}is-invalid{{/if}}" name="img" value="{{user.img}}" style="background-color:transparent">
+                    <input type="text" class="form-control {{#if errors.img }}is-invalid{{/if}}" name="img"
+                        value="{{user.img}}" style="background-color:transparent">
                     {{#if errors.img}}<div class="invalid-feedback">{{ errors.img }}</div>{{/if}}
                 </div>
             </div>

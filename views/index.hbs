@@ -4,15 +4,15 @@
             data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span> <i class="fa fa-caret-down fa-fw" aria-hidden="true"></i>Categorias</span>
         </button>
-        <div class="collapse navbar-collapse mb-3 ms-4" id="navbarNav">
+        <div class="collapse navbar-collapse mb-2 ms-4" id="navbarNav">
             <ul class="navbar-nav">
                 <form method="get">
                     {{#each categoryProduct as |category|}}
-                    <li class="nav-item btn-group">
+                    <li class="nav-item btn-group mb-1">
                         <button class="btn btn-sm btn-outline-secondary" type="submit" name="category" value="{{category}}">{{category}}</button>
                     </li>
                     {{/each}}
-                    <li class="nav-item btn-group">
+                    <li class="nav-item btn-group mb-1">
                         <button class="btn btn-sm btn-outline-secondary" type="submit" name="category">
                             <a class="index-btn-a" href="/">Todos</a>
                         </button>

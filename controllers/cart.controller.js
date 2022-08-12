@@ -1,9 +1,7 @@
 const mongoose = require('mongoose')
-const { Product, User, Cart } = require("../models")
-const categoryProduct = require("../data/category.json")
+const {Cart } = require("../models")
 const { populate } = require('../models/user.model')
 const { sendBuyEmail } = require('../config/mailer.config')
-const swal = require('sweetalert') 
 
 module.exports.cart = (req, res, next) => {
     Cart.findOne({userId: req.user.id, status: 'pending'})
@@ -29,9 +27,9 @@ module.exports.addCart = (req, res, next) => {
                 .then(() => res.redirect('/cart'))
             } else {
                 if (req.body.quanty < 1) {
-                    cart.products = cart.products.filter(p => p.id !== req.body.productId)
+                    cart.products = cart.products.filter(product => product.id !== req.body.productId)
                 } else {
-                    const product = cart.products.find(p => p.id === req.body.produdctId)
+                    const product = cart.products.find(product => product.id === req.body.productId)
 
                     if (product) {
                         product.quanty = req.body.quanty

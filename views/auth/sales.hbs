@@ -1,0 +1,17 @@
+
+{{#each carts as |cart|}}
+    {{#each cart.products as |product|}}
+        {{#recordFilter product.productId.maker.id cart.status ../../currentUser.id}}
+            <div>
+                            <div>
+                {{repeatTitle product}} <br>
+            </div>
+                
+            </div>
+        {{/recordFilter}}
+    {{/each}}
+{{/each}}
+
+
+
+¡

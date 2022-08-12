@@ -13,6 +13,12 @@ const userSchema = new Schema ({
         required: [true, 'Campo nombre requerido'],
         minLength: [2, 'Minimo 2 caracteres'],
     },
+    lastName: {
+        type: String,
+        trim: true,
+        required: [true, 'Campo apellido requerido'],
+        minLength: [2, 'Minimo 2 caracteres'],
+    },
     email: {
         type: String,
         trim: true,

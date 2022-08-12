@@ -21,9 +21,11 @@ module.exports.index = (req, res, next) => {
       .then(products => res.render('index', {products, categoryProduct, searchTitle}))
       .catch((error) => next(error))
 }
+
 module.exports.login = (req, res, next) => {
     res.render('auth/login')
 }
+
 module.exports.doLogin = (req, res, next) => {
 
   function renderInvalidLogin() {
@@ -59,9 +61,11 @@ module.exports.doLogin = (req, res, next) => {
         }
       })
 }
+
 module.exports.register = (req, res, next) => {
     res.render('auth/register')
 }
+
 module.exports.doRegister = (req, res, next) => {
     const { email } = req.body
 
@@ -87,6 +91,7 @@ module.exports.doRegister = (req, res, next) => {
         }
       })
 }
+
 module.exports.profile = (req, res, next) => {
     User.findById(req.params.id)
         .populate({
@@ -105,10 +110,12 @@ module.exports.profile = (req, res, next) => {
           })
         .catch((error) => next(error))
 }
+
 module.exports.logout = (req, res, next) => {
     res.redirect('/')
     req.session.destroy()
 }
+
 module.exports.edit = (req, res, next) => {
   const id = req.params.id
   
@@ -116,6 +123,7 @@ module.exports.edit = (req, res, next) => {
     .then(user => res.render('auth/edit', {user}))
     .catch((error) => next(error));
 }
+
 module.exports.doEdit = (req, res, next) => {
   const data = ({name, email, img } = req.body)
   data.id = req.params.id
@@ -134,6 +142,7 @@ module.exports.doEdit = (req, res, next) => {
       }
     })
 }
+
 module.exports.record = (req, res, next) => {
 
   const date = req.query.date
@@ -159,8 +168,27 @@ module.exports.record = (req, res, next) => {
     .catch((error) => next(error))
 }
 
+module.exports.sales = (req, res, next) => {
 
+  const date = req.query.date
+  
+  const criteria = {}
 
-
-
-
+  if (date) {
+    criteria.date = {$in: date}
+  }
+  
+  Cart.find(criteria)
+    .populate('userId')
+    .populate({
+      path: 'products',
+      populate: {
+        path: 'productId',
+        populate: {
+          path: 'maker'
+          }
+      }
+    })
+    .then(carts => res.render('auth/sales', {carts, date}))
+    .catch((error) => next(error))
+}

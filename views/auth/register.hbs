@@ -3,25 +3,43 @@
         <h2>Unete a Fivver-Ironhack</h2>
     </div>
     <div>
-         <span class="input-group-text mb-3" ><i class="fa fa-pencil-square-o fa-5x"></i></span>
+        <span class="input-group-text mb-3"><i class="fa fa-pencil-square-o fa-5x"></i></span>
     </div>
     <div class="col-8 col-md-7 col-lg-3">
-        <form action="/register" method="post">
+        <form action="/register" method="post" onsubmit="verificarPasswords(); return false">
             <div class="input-group mb-3">
                 <span class="input-group-text"><i class="fa fa-user-circle-o fa-fw"></i></span>
-                <input type="text" name="name" class="form-control {{#if errors.name }}is-invalid{{/if}}" placeholder="Escribir nombre" value="{{user.name}}">
+                <input type="text" name="name" class="form-control {{#if errors.name }}is-invalid{{/if}}"
+                    placeholder="Escribir nombre" value="{{user.name}}">
                 {{#if errors.name}}<div class="invalid-feedback">{{ errors.name }}</div>{{/if}}
             </div>
-
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fa fa-user-circle-o fa-fw"></i></span>
+                <input type="text" name="lastName" class="form-control {{#if errors.lastName }}is-invalid{{/if}}"
+                    placeholder="Escribir tus apellidos" value="{{user.lastName}}">
+                {{#if errors.lastName}}<div class="invalid-feedback">{{ errors.lastName }}</div>{{/if}}
+            </div>
             <div class="input-group mb-3">
                 <span class="input-group-text"><i class="fa fa-envelope fa-fw"></i></span>
-                <input type="email" name="email" class="form-control {{#if errors.email }}is-invalid{{/if}}" placeholder="Escribir email" value="{{user.email}}">
+                <input type="email" name="email" class="form-control {{#if errors.email }}is-invalid{{/if}}"
+                    placeholder="Escribir email" value="{{user.email}}">
                 {{#if errors.email}}<div class="invalid-feedback">{{ errors.email }}</div>{{/if}}
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text"><i class="fa fa-lock fa-fw"></i></span>
-                <input type="password" name="password" class="form-control {{#if errors.password }}is-invalid{{/if}}" placeholder="Escribir contraseña">
+                <input id="pass1" type="password" name="password"
+                    class="form-control {{#if errors.password }}is-invalid{{/if}}" placeholder="Escribir contraseña">
                 {{#if errors.password}}<div class="invalid-feedback">{{ errors.password }}</div>{{/if}}
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fa fa-lock fa-fw"></i></span>
+                <input id="pass2" type="password" class="form-control {{#if errors.password }}is-invalid{{/if}}"
+                    placeholder="Vuelva a escribir la contraseña">
+                {{#if errors.password}}<div class="invalid-feedback">{{ errors.password }}</div>{{/if}}
+
+                <div id="error" class="alert alert-danger ocultar" role="alert">
+                    Las Contraseñas no coinciden, vuelve a intentar !
+                </div>
             </div>
             <div class="d-grid">
                 <button class="btn btn-success" type="submit">Registrar</button>
@@ -29,3 +47,24 @@
         </form>
     </div>
 </div>
+
+<script>
+    function verificarPasswords() {
+
+        pass1 = document.getElementById('pass1')
+        pass2 = document.getElementById('pass2')
+
+        if (pass1.value != pass2.value) {
+            document.getElementById("error").classList.add("mostrar")
+            return false
+        } else {
+            document.getElementById("error").classList.remove("mostrar")
+            document.getElementById("ok").classList.remove("ocultar")
+            document.getElementById("login").disabled = true
+            setTimeout(function () {
+                location.reload()
+            }, 3000);
+            return true
+        }
+    }
+</script>
