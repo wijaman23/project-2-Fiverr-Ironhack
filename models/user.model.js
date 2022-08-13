@@ -46,7 +46,7 @@ const userSchema = new Schema ({
         type: String,
         required: [true, 'Requerida contraseña'],
         match: [PASSWORD_PATTERN, 'Invalida contraseña, min 8 y max 15 caracteres'],
-    },
+    }
 })
 
 userSchema.virtual('products', {

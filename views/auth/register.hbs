@@ -31,17 +31,16 @@
                     class="form-control {{#if errors.password }}is-invalid{{/if}}" placeholder="Escribir contraseña">
                 {{#if errors.password}}<div class="invalid-feedback">{{ errors.password }}</div>{{/if}}
             </div>
-            <div class="input-group mb-3">
+            <div class="input-group mb-2">
                 <span class="input-group-text"><i class="fa fa-lock fa-fw"></i></span>
                 <input id="pass2" type="password" class="form-control {{#if errors.password }}is-invalid{{/if}}"
                     placeholder="Vuelva a escribir la contraseña">
                 {{#if errors.password}}<div class="invalid-feedback">{{ errors.password }}</div>{{/if}}
-
-                <div id="error" class="alert alert-danger ocultar" role="alert">
+            </div>
+            <div id="error" class="alert alert-danger ocultar" role="alert">
                     Las Contraseñas no coinciden, vuelve a intentar !
                 </div>
-            </div>
-            <div class="d-grid">
+            <div class="d-grid mb-3">
                 <button class="btn btn-success" type="submit">Registrar</button>
             </div>
         </form>

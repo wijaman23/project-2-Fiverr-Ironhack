@@ -32,46 +32,60 @@
                     <span>Detalles Tarjeta</span>
                 </div>
                 <form action="/cart/buy" method="post">
-                <span class="type d-block mt-3 mb-1">Tipo tarjeta</span>
-                <label class="radio">
-                    <input type="radio" name="card" value="payment" checked>
-                    <span><img width="30" src="https://img.icons8.com/color/48/000000/mastercard.png" /></span>
-                </label>
-                <label class="radio"> <input type="radio" name="card" value="payment">
-                    <span><img width="30" src="https://img.icons8.com/officel/48/000000/visa.png" /></span>
-                </label>
-                <div>
-                    <label class="credit-card-label">Nombre</label>
-                    <input type="text" class="form-control credit-inputs" placeholder="" value="{{currentUser.name}} {{currentUser.lastName}}">
-                </div>
-                <div>
-                    <label class="credit-card-label">Numero</label>
-                    <input type="text" class="form-control credit-inputs" placeholder="0000 0000 0000 0000" required>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <label class="credit-card-label">Fecha</label>
-                        <input type="text" class="form-control credit-inputs" placeholder="12/24" required>
+                    <span class="type d-block mt-3 mb-1">Tipo tarjeta</span>
+                    <label class="radio">
+                        <input type="radio" name="card" value="payment" checked>
+                        <span><img width="30" src="https://img.icons8.com/color/48/000000/mastercard.png" /></span>
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="card" value="payment">
+                        <span><img width="30" src="https://img.icons8.com/officel/48/000000/visa.png" /></span>
+                    </label>
+                    <div class="mt-2">
+                        <label class="credit-card-label">Nombre</label>
+                        <input type="text" class="form-control credit-inputs"
+                            value="{{currentUser.name}} {{currentUser.lastName}}">
                     </div>
-                    <div class="col-md-6">
-                        <label class="credit-card-label">CVV</label>
-                        <input type="text" class="form-control credit-inputs" placeholder="342" required>
+                    <div class="mt-2 mb-2">
+                        <label class="credit-card-label">Numero</label>
+                        <div class="d-flex">
+                            <input style="width: 70px;" class="form-control credit-inputs" type="tel" pattern="[0-9]*" minlength="4"
+                                maxlength="4" name="creditCard1" id="creditCard1" placeholder="0000" required/>
+                            <input style="width: 70px;" class="form-control credit-inputs ms-2" type="tel"
+                                pattern="[0-9]*" minlength="4" maxlength="4" name="creditCard2" id="creditCard2" placeholder="0000" required />
+                            <input style="width: 70px;" class="form-control credit-inputs ms-2" type="tel"
+                                pattern="[0-9]*" minlength="4" maxlength="4" name="creditCard3" id="creditCard3" placeholder="0000" required />
+                            <input style="width: 70px;" class="form-control credit-inputs ms-2" type="tel"
+                                pattern="[0-9]*" minlength="4" maxlength="4" name="creditCard4" id="creditCard4" placeholder="0000" required />
+                        </div>
                     </div>
-                </div>
-                <hr class="line">
-                <div class="d-flex justify-content-between information">
-                    <span>Subtotal</span>
-                    <span>{{totalPrice cart.products}}€</span>
-                </div>
-                <div class="d-flex justify-content-between information">
-                    <span>Gatos envio</span>
-                    <span>20€</span>
-                </div>
-                <br>
-                <div class="d-flex justify-content-between information">
-                    <h4>Total Incl. tasas</h4>
-                    <h4>{{totalPriceCost cart.products}}€</h4>
-                </div>
+                    <div class="row mdt-2">
+                        <div class="col-md-6">
+                            <label class="credit-card-label">Fecha</label>
+                            <input type="text" class="form-control credit-inputs" placeholder="12/24" maxlength="5"
+                                minlength="5" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="credit-card-label">CVV</label>
+                            <input type="text" class="form-control credit-inputs" placeholder="342" maxlength="3"
+                                minlength="3" required>
+                        </div>
+
+                    </div>
+                    <hr class="line">
+                    <div class="d-flex justify-content-between information">
+                        <span>Subtotal</span>
+                        <span>{{totalPrice cart.products}}€</span>
+                    </div>
+                    <div class="d-flex justify-content-between information">
+                        <span>Gatos envio</span>
+                        <span>20€</span>
+                    </div>
+                    <br>
+                    <div class="d-flex justify-content-between information">
+                        <h4>Total Incl. tasas</h4>
+                        <h4>{{totalPriceCost cart.products}}€</h4>
+                    </div>
                     <input type="hidden" value={{cart.userId.id}}>
                     <div class="d-grid">
                         <button class="btn btn-success" type="submit" {{butonDisable cart.products}}>Finalizar</button>
