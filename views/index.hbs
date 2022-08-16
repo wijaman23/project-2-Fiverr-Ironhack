@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md bg-light">
     <div>
-        <button class="navbar-toggler mb-1 ms-1 btn btn-outline-secondary" type="button" data-bs-toggle="collapse"
+        <button class="navbar-toggler mb-2 ms-4 btn btn-outline-secondary" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span> <i class="fa fa-caret-down fa-fw" aria-hidden="true"></i>Categorias</span>
         </button>
@@ -9,7 +9,8 @@
                 <form method="get">
                     {{#each categoryProduct as |category|}}
                     <li class="nav-item btn-group mb-1">
-                        <button class="btn btn-sm btn-outline-secondary" type="submit" name="category" value="{{category}}">{{category}}</button>
+                        <button class="btn btn-sm btn-outline-secondary" type="submit" name="category"
+                            value="{{category}}">{{category}}</button>
                     </li>
                     {{/each}}
                     <li class="nav-item btn-group mb-1">
@@ -22,15 +23,8 @@
         </div>
         <div class="mb-3 ms-4">
             <form class="d-flex" method="get">
-                <input autocomplete="off" class="form-control" style="width: 150px; border-radius: 11px;"
-                    list="datalistOptions" name="title" value="{{ query.title }}" placeholder="Type to search...">
-                <datalist id="datalistOptions">
-                    {{#each products as |product|}}
-                        {{#indexProfile product.maker.id ../currentUser.id}}
-                            <option value="{{product.title}}">
-                        {{/indexProfile}}
-                    {{/each}}
-                </datalist>
+                <input autocomplete="off" class="form-control" style="width: 200px; border-radius: 11px;"
+                    list="datalistOptions" name="title" value="{{ query.title }}" placeholder="Que buscas hoy?">
                 <div class="index-btn">
                     <button class="btn btn-outline-success" type="submit">Buscar</button>
                 </div>
@@ -38,7 +32,6 @@
         </div>
     </div>
 </nav>
-
 <div class="py-5" id="venue">
     <div class="container border">
         <div class="row bg-light animate-in-down">

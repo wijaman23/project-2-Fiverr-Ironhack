@@ -12,7 +12,7 @@ module.exports.createProduct = (req, res, next) => {
     const data = {title, description, img, price, category} = req.body
     
     Product.create(data)
-      .then(() => res.redirect('/'))
+      .then(() => res.redirect(`/profile/${req.user.id}`))
       .catch(error => {
         if (error instanceof mongoose.Error.ValidationError) {
           User.find()

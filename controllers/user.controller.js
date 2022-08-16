@@ -13,7 +13,7 @@ module.exports.index = (req, res, next) => {
   }
 
   if (searchTitle) {
-    criteria.title= {$in: searchTitle}
+    criteria.title= new RegExp(searchTitle, 'i')
   }
 
   Product.find(criteria)
