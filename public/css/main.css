@@ -365,11 +365,10 @@ finisehd
     border: 1px solid #fff !important;
 }
 
-
 .ocultar {
     display: none;
 }
- 
+
 .mostrar {
     display: block;
 }
