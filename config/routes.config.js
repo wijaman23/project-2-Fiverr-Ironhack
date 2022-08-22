@@ -17,7 +17,7 @@ router.get('/sales/:id', secure.isloged, user.sales)
 
 router.get('/newProduct', secure.isloged, product.newProduct)
 router.post('/newProduct', secure.isloged, product.createProduct)
-router.get('/details/:id', secure.isloged, product.detailProduct)
+router.get('/details/:id', product.detailProduct)
 router.post('/product/:id/delete', secure.isloged, product.deleteProduct)
 router.get('/product/:id/edit', secure.isloged, product.editProduct)
 router.post('/product/:id/edit', secure.isloged, product.doEditProduct);
